@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './custom.css';
 import HomePage from './views/HomePage';
-import Login from './views/Login';
+import Login from './views/LogIn';
 
 const App = () => {
 

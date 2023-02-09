@@ -2,7 +2,7 @@ name: Build and deploy .NET Core application to Web App CohorteS6
 on:
   push:
     branches:
-    - master
+    - Manuel
 env:
   AZURE_WEBAPP_NAME: CohorteS6
   AZURE_WEBAPP_PACKAGE_PATH: .\publish

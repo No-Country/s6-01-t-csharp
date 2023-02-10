@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TiketFan", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TheWalkingDog", Version = "v1" });
     //c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     //{
     //    Name = "Authorization",

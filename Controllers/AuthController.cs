@@ -147,10 +147,16 @@ public class AuthController : ControllerBase
 
     [Authorize]
     [HttpGet]
-    [Route("authorize")]
+    [Route("authorized")]
     public IActionResult Authorized()
     {
-        return Ok("ok");
+        return Ok("ok Authorized");
+    }
+    [HttpGet]
+    [Route("unauthorized")]
+    public IActionResult unauthorized()
+    {
+        return Ok("ok unauthorized");
     }
 
     public class ResetPasswordModel

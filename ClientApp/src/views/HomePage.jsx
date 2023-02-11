@@ -2,10 +2,14 @@ import React from 'react'
 import { Nav } from '../components/Nav'
 // import Logo from "../assets/images/Logo.png";
 
+const style = {
+  header: 'bg-green-600 min-h-screen',
+}
+
 const HomePage = () => {
   return (<>
     
-    <header className='bg-green-600 min-h-screen'>
+    <header className={ style.header }>
       <Nav/>
       
       <div>Hola World</div>

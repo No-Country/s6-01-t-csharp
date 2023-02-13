@@ -2,7 +2,7 @@ namespace s6_01
 {
     public class WeatherForecast
     {
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } 
 
         public int TemperatureC { get; set; }
 

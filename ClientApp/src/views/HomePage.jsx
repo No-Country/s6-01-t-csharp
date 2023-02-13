@@ -1,9 +1,10 @@
 import React from 'react'
+import Principal from '../components/Principal'
 
 const HomePage = () => {
   return (
     <>
-        <div>Hola World...</div>
+        <Principal/>
     </>
   )
 }

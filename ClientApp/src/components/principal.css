@@ -1,0 +1,117 @@
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.principal {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.principal-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.5rem;
+    font-size: 2rem;
+    width: fit-content;
+}
+
+.principal-2 h1 {
+    text-transform: uppercase;
+    color: #01B1B0;
+    font-weight: 500;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 28px;
+    text-decoration: underline;
+    margin-top: 0.1rem;
+}
+
+.principal-2 img {
+    width: 30px;
+}
+
+.principal-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+    font-weight: 500;
+    margin-top: 8rem;
+}
+
+.principal-3 h2 {
+    font-size: 25px;
+    color: white;
+}
+
+.principal-3 div {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.principal-3 input {
+    width: 80vw;
+    height: 5.3vh;
+    border: solid 1px #01B1B0;
+    border-radius: 5px;
+}
+
+.principal-3 input::placeholder {
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+.principal-3 button {
+    background: #176c6d;
+    width: 3rem;
+    height: 5.3vh;
+    border-radius: 5px;
+}
+
+.principal-3 button img {
+    width: 30%;
+    margin: auto;
+}
+
+@media screen and (min-width: 800px) {
+    .principal-2 h1 {
+        font-size: 55px;
+        margin-top: 8rem;
+    }
+
+    .principal-3 h2 {
+        font-size: 60px;
+        color: white;
+    }
+
+    .principal-2 img {
+        width: 60px;
+        margin-top: 7.3rem;
+    }
+
+    .principal-3 {
+        margin-top: 35rem;
+    }
+
+    .principal-3 input {
+        width: 40vw;
+        height: 7vh;
+    }
+
+    .principal-3 button {
+        width: 15%;
+        height: 7vh;
+    }
+}

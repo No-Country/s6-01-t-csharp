@@ -1,12 +1,20 @@
 import React from 'react'
-import Contacto from '../components/Contacto'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
-  return (
-    <>
-        <Contacto />
-    </>
-  )
+    return (
+        <>
+            <h1 className="text-3xl font-bold underline">
+                Home
+            </h1>
+
+            <div>
+                <Link to="/contacto" className="btn btn-primary">contacto</Link>
+                <br></br>
+                <Link to="/login" className="btn btn-primary">login</Link>
+            </div>
+        </>
+    )
 }
 
 export default HomePage

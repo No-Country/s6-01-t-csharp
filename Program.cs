@@ -81,10 +81,12 @@ builder.Services.AddControllers();
 //builder.Services.AddScoped<IEmailBusiness, EmailBusiness>();
 
 var app = builder.Build();
+app.UseStaticFiles();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapFallbackToFile("index.html"); 
 app.Run();

@@ -1,16 +1,17 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './custom.css';
-import HomePage from './views/HomePage';
-import Login from './views/LogIn';
+import AppRoutes from './AppRoutes';
 
 const App = () => {
 
     return (
-      <Routes>
-        <Route path="/" element={<HomePage />}/>
-        <Route path="/login" element={<Login />}/>
-      </Routes>
+        <Routes>
+            {AppRoutes.map((route, index) => {
+                const { element, ...rest } = route;
+                return <Route key={index} {...rest} element={element} />;
+            })}
+        </Routes>
     );
 }
 

@@ -1,10 +1,11 @@
-import React from 'react'
+
 import { Nav } from '../components/Nav'
 import { Nosotros } from './Nosotros'
-// import Logo from "../assets/images/Logo.png";
+import perro from "../assets/images/perro.png";
 
 const style = {
-  header: 'bg-green-600 min-h-screen',
+  header: ' min-h-full relative',
+  img_fondo: "w-full h-full -z-50 absolute bottom-0 mx-auto",
 }
 
 const HomePage = () => {
@@ -12,6 +13,14 @@ const HomePage = () => {
     
     <header className={ style.header }>
       <Nav/>
+      <img
+        className= { style.perro_fondo }
+        src={ perro } 
+        alt="Perro, mascota paseada a través de The Walking Dog" />
+      <img
+        className= { style.img_fondo }
+        src={ perro } 
+        alt="Perro, mascota paseada a través de The Walking Dog" />
     </header>
     
     <Nosotros />

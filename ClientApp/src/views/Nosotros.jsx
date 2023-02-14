@@ -2,12 +2,12 @@ import mascota from "../assets/images/img_perro_nosotros.png";
 import fondo from "../assets/images/Rectangle 29.png";
 
 const style = {
-    nosotros: "h-[90vh] w-full  relative",
+    nosotros: "min-h-full w-full  relative",
     wrapper: "h-full mx-auto px-10 flex items-center justify-between w-[90%] max-w-screen-2xl  ",
     container: "w-1/2 h-[90%] px-4 ",
     wrapper_img: "flex justify-center",
     wrapper_text: "flex justify-center flex-col justify-center",
-    imagen: "h-[100%]",
+    imagen: "h-[90%]",
     h2: "text-5xl font-medium text-secondary mb-4",
     p: "text-lg my-4",
     btn_pregunta: "bg-primary  w-60 py-2 px-4 rounded-lg text-textLight text-xl mt-10",

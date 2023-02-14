@@ -1,7 +1,6 @@
 import eye from '../assets/images/visibilidad.png';
 import noEye from '../assets/images/invisible.png';
-import face from '../assets/images/facebook.png';
-import gmail from '../assets/images/gmail.png';
+import { Link } from 'react-router-dom';
 import dog from '../assets/images/PerroPng.png';
 import { Formik,Form, Field, ErrorMessage } from 'formik';
 import { useState} from 'react';
@@ -99,7 +98,7 @@ function LogIn(){
                                         <ErrorMessage name='pword' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.pword}</div>)} />
 
                                     </div> 
-                                    <a className=" text-blue-400 hover:text-blue-500 duration-100 underline text-xs font-semibold cursor-pointer" >Olvide mi contraseña</a>
+                                    <Link to='/ForgotPassword' className=" text-blue-400 hover:text-blue-500 duration-100 underline text-xs font-semibold cursor-pointer" >Olvide mi contraseña</Link>
                                     <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Acceder</button>
                                 </Form> 
                                 )}                                

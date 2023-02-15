@@ -1,10 +1,12 @@
 import {useEffect} from 'react';
-import {GoogleLogin} from 'react-google-login';
+import GoogleLogin from '@leecheuk/react-google-login';
 import {gapi} from 'gapi-script';
 import gmail from '../assets/images/gmail.png';
 
 
 const LoginGmail = () => {
+
+
 
     let clientID = "15238711127-tuudgvbq99lq0ev46vsuuv66v8o6r5te.apps.googleusercontent.com"
   
@@ -29,7 +31,8 @@ const LoginGmail = () => {
       
   
     return (
-      <>
+        <>
+           
           <div>
             <GoogleLogin 
                 clientId={clientID}

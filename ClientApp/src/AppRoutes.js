@@ -8,6 +8,9 @@ import Home from "./components/Home";
 const AppRoutes = [
     {
         index: true,
+        path: '/',
+        element: <Home />
+    }, {
         path: '/Home',
         element: <Home />
     },

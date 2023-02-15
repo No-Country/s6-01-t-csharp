@@ -9,9 +9,11 @@ const HomePage = () => {
             </h1>
 
             <div>
-                <Link to="/contacto" className="btn btn-primary">contacto</Link>
+                <Link to="/Contacto" className="btn btn-primary">contacto</Link>
                 <br></br>
-                <Link to="/login" className="btn btn-primary">login</Link>
+                <Link to="/Servicios" className="btn btn-primary">Servicios</Link>
+                <br></br>
+                <Link to="/login" className="btn btn-primary">login</Link>               
             </div>
         </>
     )

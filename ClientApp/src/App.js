@@ -15,7 +15,7 @@ const App = () => {
                     return <Route key={index} {...rest} element={element} />;
                 })}
             </Routes>
-        </>       
+        </>
     );
 }
 

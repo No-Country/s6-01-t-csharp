@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@greatsumini/react-facebook-login": "^3.3.2",
+    "@leecheuk/react-google-login": "^5.4.1",
     "@jridgewell/sourcemap-codec": "^1.4.14",
     "@svgr/plugin-svgo": "^6.5.1",
     "@svgr/webpack": "^6.5.1",
@@ -15,8 +17,6 @@
     "oidc-client": "^1.11.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-facebook-login": "^4.1.1",
-    "react-google-login": "^5.2.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "reactstrap": "^9.1.1",

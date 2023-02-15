@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using s6_01.DataAccess.Seeds.Auth;
+using s6_01.Entities;
 using s6_01.Entities.Auth;
+using System.Diagnostics;
 using System.Reflection.Emit;
 
 namespace s6_01.DataAccess
@@ -12,6 +14,10 @@ namespace s6_01.DataAccess
         {
 
         }
+
+        public virtual DbSet<ReviewPaseo> Reviews { get; set; }
+        public virtual DbSet<Pago> Pagos { get; set; }
+
         public TWDContext(DbContextOptions options)
         : base(options)
         {

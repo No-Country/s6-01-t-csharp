@@ -1,12 +1,13 @@
 import HomePage from "./views/HomePage";
 import LogIn from "./views/LogIn";
 import Contacto from "./components/Contacto";
+import ForgotPassword from "./views/ForgotPassword";
 
 const AppRoutes = [
-  {
-    index: true,
-    element: <HomePage />
-  },
+  // {
+  //   index: true,
+  //   element: <HomePage />
+  // },
   {
     path: '/login',
     element: <LogIn />
@@ -14,7 +15,11 @@ const AppRoutes = [
   {
     path: '/contacto',
     element: <Contacto />
-  }
+  },
+  {
+    path: '/ForgotPassword',
+    element: <ForgotPassword />
+  },
 ];
 
 export default AppRoutes;

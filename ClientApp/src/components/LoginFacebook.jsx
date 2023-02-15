@@ -1,4 +1,4 @@
-import FacebookLogin from  'react-facebook-login/dist/facebook-login-render-props';
+import FacebookLogin from '@greatsumini/react-facebook-login';
 import face from '../assets/images/facebook.png';
 
 function LoginFacebook(){

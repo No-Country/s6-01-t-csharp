@@ -5,7 +5,7 @@ on:
     - master
 env:
   AZURE_WEBAPP_NAME: CohorteS6
-  AZURE_WEBAPP_PACKAGE_PATH: .\publish
+  AZURE_WEBAPP_PACKAGE_PATH: .\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
   WORKING_DIRECTORY: .
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.CohorteS6_3319 }}
+        publish-profile: ${{ secrets.CohorteS6_269E }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}

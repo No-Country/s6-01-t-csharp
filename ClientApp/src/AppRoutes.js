@@ -6,30 +6,31 @@ import Nosotros from "./views/Nosotros";
 import Home from "./components/Home";
 
 const AppRoutes = [
-  {
-    path: '/Home',
-    element: <Home />
-  },
-  {
-    path: '/login',
-    element: <LogIn />
-  },
-  {
-    path: '/contacto',
-    element: <Contacto />
-  },
-  {
-    path: '/ForgotPassword',
-    element: <ForgotPassword />
-  },
-  {
-    path: '/Servicios',
-    element: <Servicios />
-  },
-  {
-    path: '/Nosotros',
-    element: <Nosotros />
-  }
+    {
+        index: true,
+        path: '/Home',
+        element: <Home />
+    },
+    {
+        path: '/login',
+        element: <LogIn />
+    },
+    {
+        path: '/contacto',
+        element: <Contacto />
+    },
+    {
+        path: '/ForgotPassword',
+        element: <ForgotPassword />
+    },
+    {
+        path: '/Servicios',
+        element: <Servicios />
+    },
+    {
+        path: '/Nosotros',
+        element: <Nosotros />
+    }
 ];
 
 export default AppRoutes;

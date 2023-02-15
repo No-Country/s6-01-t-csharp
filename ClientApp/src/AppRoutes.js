@@ -1,11 +1,14 @@
-import HomePage from "./views/HomePage";
 import LogIn from "./views/LogIn";
 import Contacto from "./components/Contacto";
+import Servicios from "./components/Servicios";
+import ForgotPassword from "./views/ForgotPassword";
+import Nosotros from "./views/Nosotros";
+import Home from "./components/Home";
 
 const AppRoutes = [
   {
-    index: true,
-    element: <HomePage />
+    path: '/Home',
+    element: <Home />
   },
   {
     path: '/login',
@@ -14,6 +17,18 @@ const AppRoutes = [
   {
     path: '/contacto',
     element: <Contacto />
+  },
+  {
+    path: '/ForgotPassword',
+    element: <ForgotPassword />
+  },
+  {
+    path: '/Servicios',
+    element: <Servicios />
+  },
+  {
+    path: '/Nosotros',
+    element: <Nosotros />
   }
 ];
 

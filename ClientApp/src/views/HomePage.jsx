@@ -1,18 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Nav from '../components/Nav';
 
 const HomePage = () => {
+
+    
+    const style = {
+        header: ' min-h-full relative',
+        img_fondo: "w-full h-full -z-50 absolute bottom-0 mx-auto",
+    }
+
     return (
         <>
-            <h1 className="text-3xl font-bold underline">
-                Home
-            </h1>
-
-            <div>
-                <Link to="/contacto" className="btn btn-primary">contacto</Link>
-                <br></br>
-                <Link to="/login" className="btn btn-primary">login</Link>
-            </div>
+            <header className={ style.header }>
+                <Nav/>
+            </header>
         </>
     )
 }

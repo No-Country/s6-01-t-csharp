@@ -1,16 +1,18 @@
 import eye from '../assets/images/visibilidad.png';
 import noEye from '../assets/images/invisible.png';
-import face from '../assets/images/facebook.png';
-import gmail from '../assets/images/gmail.png';
+import { Link } from 'react-router-dom';
 import dog from '../assets/images/PerroPng.png';
 import { Formik,Form, Field, ErrorMessage } from 'formik';
-import { useState } from 'react';
+import { useState} from 'react';
+import LoginGmail from '../components/LoginGmail';
+import LoginFacebook from '../components/LoginFacebook';
 
 function LogIn(){
 
+    
+
     const [watch, setWatch] = useState(true)
-    const noWatch = true;
-   // const [noWatch, setNoWatch] = useState(true)
+    const [noWatch, setNoWatch] = useState(true)
     const [clas, setClas] = useState('flex justify-end -my-6 mx-3 cursor-pointer absolute invisible')
     const [password, setPassword] = useState("password")
 
@@ -38,11 +40,11 @@ function LogIn(){
 
     return(
         <>
-            <div className="container w-11/12 h-screen flex justify-center m-auto ">
-                <div className=" bg-neutral-50 m-auto w-2/3 h-5/6 rounded-md shadow-slate-600 shadow-lg" >
-                    <div className="flex flex-row h-full rounded-md shadow-slate-500">
+            <div className="container w-11/12 h-screen flex justify-center m-auto py-20">
+                <div className=" bg-neutral-50 m-auto w-2/3 h-3/4 rounded-md shadow-slate-600 shadow-lg" >
+                    <div className="flex flex-row h-screen rounded-md shadow-slate-500">
                          <div className="w-2/4 h-full rounded-md shadow-slate-600 shadow-lg overflow-hidden"> 
-                            <img src={dog}  alt="" className="object-contain -my-8" />
+                            <img src={dog} className=" object-contain " />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
                                 <p className="text-center text-white text-xl">¿Todavía no tienes una cuenta?</p>                           
                                 <button className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer">Registrarse</button>
@@ -90,80 +92,20 @@ function LogIn(){
                                         <p className="my-3 font-semibold">Contraseña</p>
                                         <div>
                                             <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder="********" id='pword' name='pword' type={password} />
-                                                {watch && <div className='flex justify-end -my-6 mx-3 cursor-pointer'><img alt=""  src={eye} className="w-3" onClick={()=>{visible()}}  /></div> }
-                                                <div className={clas}><img alt="" src={noEye} className="w-3" onClick={()=>{noVisible()}} /></div>
+                                            {watch && <div className='flex justify-end -my-6 mx-3 cursor-pointer'><img src={eye} className="w-3" onClick={()=>{visible()}}  /></div> }
+                                            <div className={clas}><img src={noEye} className="w-3" onClick={()=>{noVisible()}} /></div>
                                         </div>
                                         <ErrorMessage name='pword' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.pword}</div>)} />
 
                                     </div> 
-                                    <a href="/" className=" text-blue-400 hover:text-blue-500 duration-100 underline text-xs font-semibold cursor-pointer" >Olvide mi contraseña</a>
-                                    <button className="flex justify-center mx-auto mt-8 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Acceder</button>
+                                    <Link to='/ForgotPassword' className=" text-blue-400 hover:text-blue-500 duration-100 underline text-xs font-semibold cursor-pointer" >Olvide mi contraseña</Link>
+                                    <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Acceder</button>
                                 </Form> 
-                                )}
-                                
-                            </Formik>
-                            {
-                            // codigo antes de ser actualizado usando las etiquetas de formik
-                            /* <Formik
-                                initialValues={{
-                                    pword:'',
-                                    email:''
-                                }}
-                                validate={(valores)=>{
-                                    let errores = {}
-
-                                    if(!valores.email){
-                                        errores.email = "ingrese un correo"
-                                    }else if(! /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
-                                        errores.email = 'Correo incorrecto'
-                                    }
-
-                                    if(!valores.pword){
-                                        errores.pword = "Contraseña incorrecta"
-                                    }
-                                    // else if(!/^.{4.20}$/.test(valores.pword)){
-                                    //     errores.pword = 'La contraseña o el correo es incorrecto'
-                                    // }
-
-                                    return errores
-                                }}
-                                onSubmit={(valores, {resetForm}) => {
-                                    resetForm()
-                                    console.log(valores)
-                                    console.log('formulario enviado')
-                                }}
-                            >
-                                {( 
-                                    { values, errors, handleSubmit, handleChange, handleBlur, touched} )=>(
-                                <form onSubmit={handleSubmit}>
-                                    <div className=" w-full">
-                                        <p className="my-3 font-semibold">Correo eléctronico</p> 
-                                        <input className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder="correo@correo.com" id='email' name='email' type="email" value={values.email} onChange={handleChange} onBlur={handleBlur} />
-                                        {touched.email && errors.email && <div className=' text-red-500 text-xs font-bold'>{errors.email}</div>}
-                                    </div>
-                                    <div className=" w-full">
-                                        <p className="my-3 font-semibold">Contraseña</p>
-                                        <div>
-                                            <input className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder="********" id='pword' name='pword' type={password} value={values.pword} onChange={handleChange} onBlur={handleBlur} />
-                                            {touched.pword && errors.pword && <div className=' text-red-500 text-xs font-bold'>{errors.pword}</div>}
-                                            {watch && <div className='flex justify-end -my-6 mx-3 cursor-pointer'><img  alt="" src={eye} className="w-3" onClick={()=>{visible()}}  /></div> }
-                                            <div className={clas}><img  alt="" src={noEye} className="w-3" onClick={()=>{noVisible()}} /></div>
-                                        </div>
-                                    </div> 
-                                    <a className=" text-blue-400 hover:text-blue-500 duration-100 underline text-xs font-semibold cursor-pointer my-10" >Olvide mi contraseña</a>
-                                    <button className="flex justify-center mx-auto -mt-8 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Acceder</button>
-                                </form> 
-                                )}
-                                
-                            </Formik>                                                                                                                                           */}
-                            <div className="flex justify-start mx-auto mt-2  cursor-pointer text-white text-xs bg-red-400 hover:bg-red-300 duration-150 rounded-md w-full p-2 shadow-slate-400  shadow-md gap-4" >
-                                <div className=' bg-white rounded-full w-5 h-5 flex justify-center '><img alt="" src={gmail} className="w-3 object-contain" /></div> 
-                                <p className="text-center">Iniciar sesión con Gmail</p>
-                            </div>
-                            <div className="flex justify-start mx-auto mt-2 cursor-pointer text-white text-xs bg-blue-500 hover:bg-blue-400 duration-150  rounded-md w-full p-2 shadow-slate-400  shadow-md gap-4">
-                                <div className=' bg-white rounded-full w-5 h-5 flex justify-center '><img alt="" src={face} className="w-3 object-contain" /></div> 
-                                <p className="text-center">Iniciar sesión con Facebook</p>
-                          </div>
+                                )}                                
+                            </Formik>                                                                                                                                        
+                            <LoginGmail />
+                            <LoginFacebook />
+                            
                     </div>
                     </div>
                 </div>

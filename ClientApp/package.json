@@ -41,12 +41,7 @@
     "@rollup/plugin-terser": "^0.4.0",
     "ajv": "^8.11.0",
     "cross-env": "^7.0.3",
-    "eslint": "^8.18.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.0",
-    "eslint-plugin-react": "^7.30.1",
+
     "nan": "^2.16.0",
     "tailwindcss": "^3.2.6",
     "typescript": "^4.7.4"
@@ -64,13 +59,9 @@
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/"
+   
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ]
-  },
+
   "browserslist": {
     "production": [
       ">0.2%",

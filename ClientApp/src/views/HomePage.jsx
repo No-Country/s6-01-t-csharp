@@ -1,6 +1,9 @@
-import React from 'react'
+
 import Nav from '../components/Nav';
 import Home from "../components/Home";
+import Nosotros from '../components/Nosotros';
+import Contacto from '../components/Contacto';
+import Servicios from '../components/Servicios';
 
 const HomePage = () => {
 
@@ -12,10 +15,14 @@ const HomePage = () => {
 
     return (
         <>
-            <header className={ style.header }>
+            <header  className={ style.header }>
                 <Nav/>
                 <Home/>
             </header>
+                
+                <Nosotros />
+                <Servicios />
+                <Contacto />
         </>
     )
 }

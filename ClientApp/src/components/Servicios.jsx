@@ -6,7 +6,7 @@ import pet3 from "../assets/images/pet3.jpg";
 function Servicios() {
   const firstCircle = `shadow-[5px_5px_20px_5px_rgba(0,0,0,0.25)] absolute bg-gradient-157 from-[#4C0A37_25.82%] via-[#7A466A_46.56%] to-[#BAABB5_85.26%] rounded-[50%] `;
   return (
-    <div className="h-screen w-full  bg-[#FCFBFE]">
+    <div id="servicios" className="h-screen w-full  bg-[#FCFBFE]">
       <div className="w-[90%]  m-auto pt-[5rem] pb-8 ">
         <div className="w-full">
           <h1 className="text-[1.8rem] text-[#4C0A37] ">Servicios</h1>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../components/Nav';
+import Home from "../components/Home";
 
 const HomePage = () => {
 
@@ -13,9 +14,11 @@ const HomePage = () => {
         <>
             <header className={ style.header }>
                 <Nav/>
+                <Home/>
             </header>
         </>
     )
 }
+
 
 export default HomePage

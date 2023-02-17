@@ -4,6 +4,7 @@ import Servicios from "./components/Servicios";
 import ForgotPassword from "./views/ForgotPassword";
 import Nosotros from "./views/Nosotros";
 import Home from "./components/Home";
+import Register from "./views/Register";
 
 const AppRoutes = [
     {
@@ -17,6 +18,10 @@ const AppRoutes = [
     {
         path: '/login',
         element: <LogIn />
+    },
+    {
+        path: '/Register',
+        element: <Register />
     },
     {
         path: '/contacto',

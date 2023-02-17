@@ -21,15 +21,15 @@ function Nav() {
 
     const [bgTransparente, setBgTransparent ] = useState(true);
 
-    let url = window.location.pathname
+    // let url = window.location.pathname
 
-    if(url !== '/Home'){
-        {style.nav = 'h-[10vh] w-full fixed z-50 bg-teal-700'}
-        {style.btn_login = "bg-primary  w-40 py-2 px-4 rounded-lg text-white text-xl bg-teal-500"}
-    }else{
-        {style.nav = 'h-[10vh] w-full fixed z-50 bg-transparent'}
-        {style.btn_login = "bg-primary  w-40 py-2 px-4 rounded-lg text-white text-xl bg-transparent"}
-    }
+    // if(url !== '/Home'){
+    //     {style.nav = 'h-[10vh] w-full fixed z-50 bg-teal-700'}
+    //     {style.btn_login = "bg-primary  w-40 py-2 px-4 rounded-lg text-white text-xl bg-teal-500"}
+    // }else{
+    //     {style.nav = 'h-[10vh] w-full fixed z-50 bg-transparent'}
+    //     {style.btn_login = "bg-primary  w-40 py-2 px-4 rounded-lg text-white text-xl bg-transparent"}
+    // }
 
     const [idEnlace, setIdEnlace] = useState(0);
 
@@ -51,7 +51,7 @@ function Nav() {
     return (<>
         <nav className= { style.nav } >
             <div className= { `${ style.wrapper_nav } ${ bgTransparente ? style.bg_transparent : style.bg_active }` } >
-                <a  href="/">
+                <a  href="#">
                     <img className="w-14" src={ Logo } alt="Logotipo The Walking Dog" />
                 </a>
                 

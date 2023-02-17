@@ -6,7 +6,7 @@ import ContactForm from './ContactForm'
 
 const Contacto = () => {
   return (
-    <div className='flex items-center justify-center bg-white min-h-screen'>
+    <div id='contacto' className='flex items-center justify-center bg-white min-h-screen'>
         <div className='w-[1272px] h-[880px] flex justify-center items-center'>
             <div className='w-[636px] h-[100%] justify-center content-center rounded-lg shadow-xl relative'>
                 <img src="https://s3-alpha-sig.figma.com/img/e5bd/7713/c39e32c6ed06417a2f56b8661742782f?Expires=1676851200&Signature=UePjVDUSljTv8GPLVjFsI-4XR6hWotTP-rINhbmgAAZQTjkc3vyRGRFsCjzsLnlYhAMnW9IZ5q2jzE5jRths8LVUF1AJliKyfnk7kctCSmG7Gtx5iJSbjxiX~wpI9B~PoHHfxFnItFXqsXPHlHHOncfBlJGXbzRBu8Ki3izYfvi3kVNtntgYo7sm7ci9xdZDglIbpYgA1Jo5F2zkQLYaVN-VKF3EWweAFs01zUDCQT7i3lQ6OK0ds1web-OknJl-kvY5gnUVGAP38vGg~Tihs5pP34FYAnvSvpszzDN~XV7AgvI8z-I6ZEO5H4Zyu55gLKDAcOlr6a5D1dGf8gdYHg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="background-img" className='absolute object-cover w-full h-full rounded-lg shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]'/>

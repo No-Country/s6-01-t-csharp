@@ -8,7 +8,8 @@ namespace s6_01.Entities.Auth
         public int Id { get; set; }
         [Required]
         public string Nombres { get; set; }
-        public string Apellidos { get; set; }
-        ICollection<Mascota> Mascotas { get; set;} = new List<Mascota>();   
+        public string Apellidos { get; set;} 
+        public string Telefono {get;set;}
+        public ICollection<Mascota> Mascotas { get; set;} = new List<Mascota>();   
     }
 }

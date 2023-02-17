@@ -5,9 +5,10 @@ namespace s6_01.Entities.Auth
 {
     public class ApplicationUser : IdentityUser
     {
-       [Required]
+        public int Id { get; set; }
+        [Required]
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
-        ICollection<Mascota> Mascotas { get; set;}
+        ICollection<Mascota> Mascotas { get; set;} = new List<Mascota>();   
     }
 }

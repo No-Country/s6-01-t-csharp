@@ -18,7 +18,7 @@ namespace s6_01.Entities
         public int Telefono { get; set; }
         [Required]
         public decimal CobroPorHora { get; set; }
-        public Disponibilidad Disponibilidad { get; set; }
+        public ICollection<Disponibilidad> Disponibilidad { get; set; } = new List<Disponibilidad>();
         public List<string> Preferencias { get; set; }
         public string Descripcion { get; set; }
     }

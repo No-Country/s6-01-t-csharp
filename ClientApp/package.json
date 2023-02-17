@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@greatsumini/react-facebook-login": "^3.3.2",
-    "@leecheuk/react-google-login": "^5.4.1",
     "@jridgewell/sourcemap-codec": "^1.4.14",
+    "@leecheuk/react-google-login": "^5.4.1",
     "@svgr/plugin-svgo": "^6.5.1",
     "@svgr/webpack": "^6.5.1",
     "css-select": "^5.1.0",

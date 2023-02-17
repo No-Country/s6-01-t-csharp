@@ -19,7 +19,7 @@ namespace s6_01.Entities
         [Required]
         public decimal CobroPorHora { get; set; }
         public ICollection<Disponibilidad> Disponibilidad { get; set; } = new List<Disponibilidad>();
-        public List<string> Preferencias { get; set; }
-        public string Descripcion { get; set; }
+        public ICollection<string> Preferencias { get; set; } = new List<string>();
+        public string Descripcion { get; set; } = "";
     }
 }

@@ -8,5 +8,6 @@ namespace s6_01.Entities.Auth
        [Required]
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
+        ICollection<Mascota> Mascotas { get; set;}
     }
 }

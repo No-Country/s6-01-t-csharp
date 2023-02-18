@@ -2,9 +2,18 @@
 import background from '../../src/assets/images/fondo.svg'
 import puppy from '../../src/assets/images/Vectorpuppy.svg'
 import search from '../../src/assets/images/search.svg'
+import { useState } from 'react'
 
 
 const Home = () => {
+
+    const [localidad, setLocalidad] = useState("");
+
+    const onClick = () => {
+        console.log(localidad);
+    }
+
+
     return (
         <div className='w-100% h-full flex justify-center font-["poppins"]'>
             <img src={background} alt="background" className=''/>
@@ -17,9 +26,20 @@ const Home = () => {
                 <div className='flex flex-col justify-center items-center w-[70vw] font-medium mt-[50%] computer:-mt-[5%]'>
                     <h2 className='text-2xl text-white font-medium computer:text-6xl computer:font-semibold computer:mt-50% computer:-mb-[50%]'>Encuentra a tu Paseador </h2>
                     <div className='flex content-center gap-2 computer:mt-[50%]'>
-                        <input type='text' placeholder='localidad, barrio o cuidad' className='w-11/12 h-7 p-2 border-dark border-solid border-2 rounded placeholder:p-4 placeholder:text-sm computer:w-[80vw] computer:h-16 computer:placeholder:text-lg'/>
+                        <input 
+                            type='text' 
+                            placeholder='localidad, barrio o cuidad' 
+                            className='w-11/12 h-7 p-2 border-dark border-solid border-2 rounded placeholder:p-4 placeholder:text-sm computer:w-[80vw] computer:h-16 computer:placeholder:text-lg'
+                            onChange={ (e) => setLocalidad(e.target.value) }
+                            value = { localidad }/>
+                            
                         <button className='bg-dark w-10 rounded-md computer:w-[20%] computer:h-16 flex content-center items-center justify-center'>
-                            <img src={search} alt='iconSearch' className='w-[20%] m-auto w- computer:text-sm com'/>
+                            <img 
+                                src={search} 
+                                alt='iconSearch' 
+                                className='w-[20%] m-auto w- computer:text-sm com'
+                                onClick={ onClick }
+                                />
                         </button>
                     </div>
                 </div>

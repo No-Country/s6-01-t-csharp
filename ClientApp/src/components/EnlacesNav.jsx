@@ -4,7 +4,7 @@ const style = {
 
 export const EnlacesNav = ( { index, className, onClick } ) => {
 
-    const agregarTitulo = (id, val1, val2, val3, val4) => {
+    const agregarTitulo = (id, val1, val2, val3, val4, val5) => {
         
         switch (id) {
             case 0:{
@@ -23,6 +23,10 @@ export const EnlacesNav = ( { index, className, onClick } ) => {
                 let titulo = val4;
                 return titulo;
             }
+            case 4:{
+                let titulo = val5;
+                return titulo;
+            }
             default:{ 
                 let titulo = " ";
                 return titulo;
@@ -35,9 +39,9 @@ export const EnlacesNav = ( { index, className, onClick } ) => {
         <li className= { className }>
             <a 
                 className={ style.a } 
-                href={ agregarTitulo(index, "#", "#nosotros", "#servicios", "#contacto") }
+                href={ agregarTitulo(index, "#", "#nosotros", "#servicios","#faqs" ,"#contacto") }
                 onClick={ onClick }>
-                    { agregarTitulo(index, "Home", "Nosotros", "Servicios", "Contacto") }
+                    { agregarTitulo(index, "Home", "Nosotros", "Servicios", "FAQs","Contacto") }
                 </a>
         </li>
     </>)

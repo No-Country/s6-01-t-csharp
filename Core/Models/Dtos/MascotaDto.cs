@@ -1,22 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace s6_01.Entities
+﻿namespace s6_01.Core.Models.Dtos
 {
-    public class Mascota
+    public class MascotaDto
     {
-        [Key]
         public int Id { get; set; }
-        [Required]
-        [StringLength(25)]
+    
         public string Nombre { get; set; } = string.Empty;
-        [Required]
-        [StringLength(20)]
+       
         public string Raza { get; set; } = string.Empty;
-        [Required]
+    
         public float Peso { get; set; }
-        [Required]
+     
         public int Edad { get; set; }
-        [Required]
+     
         public bool Vacunas { get; set; }
         public string Notas { get; set; } = string.Empty;
     }

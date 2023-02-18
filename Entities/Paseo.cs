@@ -5,7 +5,7 @@ namespace s6_01.Entities
     public class Paseo
     {
         [Key]
-        public int Pso_Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public DateTime FechaIn { get; set; }
         [Required]
@@ -16,5 +16,6 @@ namespace s6_01.Entities
         [Required]
         [MaxLength(20)]
         public string  ZonaPso { get; set; }
+        public float Tarifa { get; set; }
     }
 }

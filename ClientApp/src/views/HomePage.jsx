@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import Nosotros from '../components/Nosotros';
 import Contacto from '../components/Contacto';
 import Servicios from '../components/Servicios';
+import Faqs from '../components/Faqs';
 
 const HomePage = () => {
 
@@ -21,6 +22,7 @@ const HomePage = () => {
             </header>
                 
                 <Nosotros />
+                <Faqs />
                 <Servicios />
                 <Contacto />
         </>

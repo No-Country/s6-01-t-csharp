@@ -5,7 +5,7 @@ import { EnlacesNav } from "./EnlacesNav";
 
 const style = {
     nav: "h-[10vh] w-full fixed z-50",
-    wrapper_nav:" h-full mx-auto  px-10 flex items-center justify-between w-full max-w-screen-2xl transition-all duration-300 ease-in-out ",
+    wrapper_nav:" h-full mx-auto  px-10 flex items-center justify-evenly w-full transition-all duration-300 ease-in-out ",
     ul:"w-[60%] flex justify-evenly",
     li:"  h-full  py-1 hover:border-b-4 border-primary transition-all duration-200 ease-in- text-white ",
     btn_login: "bg-primary  w-40 py-2 px-4 rounded-lg text-white text-xl",

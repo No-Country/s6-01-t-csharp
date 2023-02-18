@@ -35,9 +35,9 @@ export const EnlacesNav = ( { index, className, onClick } ) => {
         <li className= { className }>
             <a 
                 className={ style.a } 
-                href={ agregarTitulo(index, "#", "#nosotros", "#servicios", "#contacto") }
+                href={ agregarTitulo(index, "#", "#servicios" , "#nosotros" , "#contacto") }
                 onClick={ onClick }>
-                    { agregarTitulo(index, "Home", "Nosotros", "Servicios", "Contacto") }
+                    { agregarTitulo(index, "Home", "Servicios", "Nosotros", "Contacto") }
                 </a>
         </li>
     </>)

@@ -40,17 +40,17 @@ function LogIn(){
 
     return(
         <>
-            <div className="container w-11/12 h-screen flex justify-center m-auto py-20">
-                <div className=" bg-neutral-50 m-auto w-2/3 h-3/4 rounded-md shadow-slate-600 shadow-lg" >
-                    <div className="flex flex-row h-screen rounded-md shadow-slate-500">
-                         <div className="w-2/4 h-full rounded-md shadow-slate-600 shadow-lg overflow-hidden"> 
-                            <img src={dog} className=" object-contain " />
+            <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
+
+                    <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-5/6 2xl:h-[900px]">
+                        <div className=" h-[400px] md:h-full w-[100%] md:w-[48%] lg:w-[550px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
+                            <img src={dog} className="h-full w-full object-cover md:rounded-md" />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
                                 <p className="text-center text-white text-xl">¿Todavía no tienes una cuenta?</p>                           
                                 <button className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer">Registrarse</button>
                             </div>
                         </div>
-                        <div className="p-6 m-auto w-2/4 h-full flex flex-col justify-center gap-1">
+                        <div className="h-[500px] md:h-full w-[100%] md:w-[48%] lg:w-[550px] flex flex-col justify-center items-center gap-1 shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)] md:rounded-md">
                             <h3 className="flex flex-col text-center font-semibold text-xl m-2">Iniciar Sesión</h3>
                             <Formik
                                 initialValues={{
@@ -82,8 +82,8 @@ function LogIn(){
                                 }}
                             >
                                 {({errors})=>(
-                                <Form>
-                                    <div className=" w-full">
+                                <Form className='w-[90%]'>
+                                    <div className=" w-[full]">
                                         <p className="my-3 font-semibold">Correo eléctronico</p> 
                                         <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder="correo@correo.com" id='email' name='email' type="email" />
                                         <ErrorMessage name='email' component={()=> (<div className=' text-red-500 text-xs font-semibold'>{errors.email}</div>)} />
@@ -102,13 +102,15 @@ function LogIn(){
                                     <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Acceder</button>
                                 </Form> 
                                 )}                                
-                            </Formik>                                                                                                                                        
-                            <LoginGmail />
-                            <LoginFacebook />
+                            </Formik>  
+                            <div className='w-[90%]'>
+                                <LoginGmail/>
+                                <LoginFacebook />
+                            </div>                                                                                                                                      
                             
                     </div>
                     </div>
-                </div>
+
             </div>
         </>
     )

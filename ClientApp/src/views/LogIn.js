@@ -47,7 +47,7 @@ function LogIn(){
                             <img src={dog} className=" object-contain " />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
                                 <p className="text-center text-white text-xl">¿Todavía no tienes una cuenta?</p>                           
-                                <Link to="/Register" className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer" >Registrarse</Link> 
+                                <a href="/Register" className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer">Registrarse</a>
                             </div>
                         </div>
                         <div className="p-6 m-auto w-2/4 h-full flex flex-col justify-center gap-1">

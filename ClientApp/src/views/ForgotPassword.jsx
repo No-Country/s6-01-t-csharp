@@ -4,7 +4,7 @@ function ForgotPassword(){
 
     return(
         <>
-            <div className="container w-11/12 h-screen flex justify-center m-auto py-24 " >
+            <div className="container w-11/12 h-screen flex justify-center m-auto" >
                 <div className="m-auto shadow-lg shadow-gray-700 w-3/5 h-2/5 rounded-lg border border-solid border-gray-200" >
                     <h3 className=" font-semibold text-xl m-3 " >Recuperar contraseña</h3>
                     <hr />

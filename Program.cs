@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using NETCore.MailKit.Core;
+using s6_01.Core.Business.Email;
+using s6_01.Core.Business.Email.Interfaces;
+using s6_01.Core.Services.Email;
+using s6_01.Core.Services.Email.Interfaces;
 using s6_01.DataAccess;
 using s6_01.Entities.Auth;
 using System.Reflection;
@@ -12,10 +15,11 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//var emailConfig = builder.Configuration
-//      .GetSection(EmailConfiguration.Section)
-//      .Get<EmailConfiguration>();
-//builder.Services.AddSingleton(emailConfig);
+var emailConfig = builder.Configuration
+      .GetSection(EmailConfiguration.Section)
+      .Get<EmailConfiguration>();
+
+builder.Services.AddSingleton(emailConfig);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -77,8 +81,8 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 
-//builder.Services.AddScoped<IEmailService, EmailService>();
-//builder.Services.AddScoped<IEmailBusiness, EmailBusiness>();
+builder.Services.AddSingleton<IEmailService, EmailService>();
+builder.Services.AddSingleton<IEmailBusiness, EmailBusiness>();
 
 var app = builder.Build();
 app.UseStaticFiles();

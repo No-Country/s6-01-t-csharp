@@ -2,9 +2,18 @@
 import background from '../../src/assets/images/fondo.svg'
 import puppy from '../../src/assets/images/Vectorpuppy.svg'
 import search from '../../src/assets/images/search.svg'
+import { useState } from 'react'
 
 
 const Home = () => {
+
+    const [localidad, setLocalidad] = useState("");
+
+    const onClick = () => {
+        console.log(localidad);
+    }
+
+
     return (
         <div className='w-100% h-screen flex justify-center font-["poppins"]'>
             <img src={background} alt="background" className='object-cover'/>
@@ -30,5 +39,4 @@ const Home = () => {
         </div>
     );
 }
-
 export default Home;

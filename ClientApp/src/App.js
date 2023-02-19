@@ -7,6 +7,7 @@ import Contacto from './components/Contacto';
 import Nav from './components/Nav';
 import Home from './components/Home';
 
+
 const App = () => {
     const style = {
         header: ' min-h-full relative',
@@ -21,12 +22,11 @@ const App = () => {
             </header>
             <Routes>
                 {AppRoutes.map((route, index) => {
-                    const { element, ...rest } = route;
-                    return <Route key={index} {...rest} element={element} />;
+                    const { element, path } = route;
+                    return <Route key={index} path={ path } element={element} />;
                 })}
             </Routes>
         </>
     );
 }
-
 export default App

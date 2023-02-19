@@ -1,13 +1,21 @@
 import LogIn from "./views/LogIn";
 import ForgotPassword from "./views/ForgotPassword";
-import { Paseadores } from "./components/Paseadores";
+import Contacto from "./components/Contacto";
 import HomePage from "./views/HomePage";
+import Servicios from "./components/Servicios";
+import { Paseadores } from "./components/Paseadores";
 import Register from "./views/Register";
+
 
 const AppRoutes = [
     {
         path: '/',
         element: <HomePage />
+    },
+    {
+
+        path: '/servicios',
+        element: <Servicios />
     },
     {
         path: '/login',
@@ -24,8 +32,6 @@ const AppRoutes = [
     {
         path: '/paseadores/:id',
         element: <Paseadores />
-    },
-    
+    }    
 ];
-
 export default AppRoutes;

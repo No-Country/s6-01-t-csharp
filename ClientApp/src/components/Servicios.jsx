@@ -6,11 +6,11 @@ import pet3 from "../assets/images/pet3.jpg";
 function Servicios() {
   const firstCircle = `shadow-[5px_5px_20px_5px_rgba(0,0,0,0.25)] absolute bg-gradient-157 from-[#4C0A37_25.82%] via-[#7A466A_46.56%] to-[#BAABB5_85.26%] rounded-[50%] `;
   return (
-    <div id="servicios" className="h-screen w-full  bg-[#FCFBFE]">
-      <div className="w-[90%]  m-auto pt-[5rem] pb-8 ">
-        <div className="w-full">
-          <h1 className="text-[1.8rem] text-[#4C0A37] ">Servicios</h1>
-          <p className="text-color-[#000000]">
+    <div id="servicios" className=" flex justify-center items-center min-h-screen w-full  bg-[#FCFBFE] m-auto">
+      <div className="w-[90%] h-full mx-auto pt-[5rem] pb-[5rem] ">
+        <div className="w-[80%] m-auto">
+          <h1 className=" text-5xl font-medium text-[#4C0A37] ">Servicios</h1>
+          <p className="text-color-[#000000] text-xl mt-3">
             Estos son los servicios que cuenta la empresa de The Walking Dog,
             los mismos pueden ir cambiando si así se amerita y/o a la necesidad
             del cliente
@@ -19,7 +19,7 @@ function Servicios() {
         <div className=" w-full mt-[3rem] gap-[1rem]  flex flex-row justify-center flex-wrap">
           <div className="relative  h-[400px] w-[350px]  rounded-[10px]">
             <div
-              className={`h-[110px]  w-[110px] top-[-30px] left-[20px] ${firstCircle} `}
+              className={` h-[70px] w-[70px] md:h-[110px]  md:w-[110px] top-[-30px] left-[70px] md:top-[-30px] md:left-[20px] ${firstCircle} `}
             ></div>
             <img
               src={pet2}
@@ -27,12 +27,12 @@ function Servicios() {
               className="h-[50%] relative w-full rounded-t-[10px]"
             />
             <div
-              className={`h-[110px]  w-[110px] top-[-38px] left-[-50px] ${firstCircle} `}
+              className={`h-[70px] w-[70px] md:h-[110px]  md:w-[110px] top-[-20px] left-[-30px] md:top-[-38px] md:left-[-50px] ${firstCircle} `}
             ></div>
 
             <div className="h-[50%] relative p-[2rem] bg-[#0AA29F] rounded-b-[10px]">
               <div
-                className={`h-[120px]  w-[120px] top-[130px] left-[-80px] ${firstCircle} `}
+                className={`h-[70px] w-[70px] md:h-[120px]  md:w-[120px] top-[130px] left-[-30px] md:top-[130px] md:left-[-80px] ${firstCircle} `}
               ></div>
               <span className="text-[#FFFFFF]">
                 <h3 className="text-[1.4rem]">Paseo a tu mascota</h3>
@@ -45,10 +45,10 @@ function Servicios() {
           </div>
           <div className="relative h-[400px] w-[350px] rounded-[10px]">
             <div
-              className={`h-[100px]  w-[100px] top-[320px] right-[120px] rotate-[-180deg] ${firstCircle} `}
+              className={`h-[70px] w-[70px] md:h-[100px]  md:w-[100px] top-[320px] right-[120px] rotate-[-180deg] ${firstCircle} `}
             ></div>
             <div
-              className={`h-[160px]  w-[160px] top-[280px] right-[-15px] rotate-[-180deg] ${firstCircle} `}
+              className={`h-[70px] w-[70px] md:h-[160px]  md:w-[160px] top-[280px] right-[-15px] rotate-[-180deg] ${firstCircle} `}
             ></div>
             <img
               src={pet1}
@@ -69,7 +69,7 @@ function Servicios() {
           </div>
           <div className="relative h-[400px] w-[350px] rounded-[10px]">
             <div
-              className={`h-[150px]  w-[150px] bottom-[-30px] right-[-60px] ${firstCircle} `}
+              className={`h-[70px] w-[70px] md:h-[150px]  md:w-[150px] bottom-[-25px] right-[-15px] md:bottom-[-30px] md:right-[-60px] ${firstCircle} `}
             ></div>
             <img
               src={pet3}
@@ -77,10 +77,10 @@ function Servicios() {
               className="relative h-[50%] w-full rounded-t-[10px]"
             />
             <div
-              className={`h-[120px]  w-[120px] top-[-40px] left-[-70px] ${firstCircle} `}
+              className={`h-[70px] w-[70px] md:h-[120px]  md:w-[120px] top-[-20px] left-[-20px] md:top-[-40px] md:left-[-70px] ${firstCircle} `}
             ></div>
             <div
-              className={`h-[150px]  w-[150px] top-[-40px] right-[-60px] ${firstCircle} `}
+              className={`h-[80px] w-[80px] md:h-[150px]  md:w-[150px] top-[-20px] right-[-15px] md:top-[-40px] md:right-[-60px] ${firstCircle} `}
             ></div>
             <div className="relative h-[50%]  p-[2rem] bg-[#0AA29F] rounded-b-[10px]">
               <span className="text-[#FFFFFF]">

@@ -29,7 +29,7 @@ const Contacto = () => {
                             <div className='w-[50px] flex justify-center'>
                                 <img src={fbicon} alt="fbicon" srcset="" className='w-[35px] h-[35px]'/>
                             </div>
-                            <p>Leash</p>
+                            <p>The Walking Dog</p>
                         </div>
                     </div>
                     <div className=' h-full text-sm flex justify-center items-center md:items-end pb-10 w-[70%]'>
@@ -37,18 +37,6 @@ const Contacto = () => {
                         Intentamos responder todas las consultas en un tiempo menor a las 24 horas, sin embargo por diferentes motivos este plazo se puede alargar. Si en 48 horas no obtiene respuestas por favor no dude en volver a consultar. Estamos para ayudarte.
                         </p>
                     </div>
-                </div>
-                <div>
-
-                    <p className='red'>correo@correo.com</p>
-                </div>
-                <div>
-
-                    <p>+59888888888</p>
-                </div>
-                <div>
-
-                    <p>The Walking Dog</p>
                 </div>
             </div>
             <div className='w-[100%] md:w-[48%] lg:w-[550px] h-[756px] md:h-full justify-center content-center bg-white md:rounded-lg shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]'>

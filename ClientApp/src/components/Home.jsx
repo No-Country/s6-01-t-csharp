@@ -1,5 +1,5 @@
 
-import background from '../../src/assets/images/fondo.svg'
+import background from '../../src/assets/images/fondo.png'
 import puppy from '../../src/assets/images/Vectorpuppy.svg'
 import search from '../../src/assets/images/search.svg'
 import { useState } from 'react'
@@ -24,7 +24,7 @@ const Home = () => {
                         <h1 className='uppercase text-principal mt-[20%] lg:mt-0 text-center sm:text-4xl text-2xl text-bold font-bold computer:text-6xl'>The Walking Dog</h1>
                         <img src={puppy} alt='icon_puppy' className='w-6 mt-20% lg:mt-0 computer:w-[5%] '/>
                     </div>
-                    <div className='border-b-2 border-b-white w-[70%] sm:w-[40%] 2xl:w-[20%]'/>
+                    <div className='border-b-2 border-b-white w-[70%] sm:w-[40%] 2xl:w-[30%]'/>
                 </div>
                 <div className='flex flex-col justify-center gap-5 items-center w-full md:w-[70%] mx-auto font-medium'>
                     <h2 className='text-2xl text-white font-medium computer:text-6xl computer:font-semibold'>Encuentra a tu paseador </h2>

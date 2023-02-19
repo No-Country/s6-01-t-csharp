@@ -8,7 +8,7 @@ const style = {
     wrapper_img: "flex justify-center",
     wrapper_text: "flex justify-center flex-col justify-center",
     imagen: "h-[90%] w-[100%]",
-    h2: "text-center text-3xl md:text-5xl font-medium text-secondary mb-4",
+    h2: "text-center md:text-left text-3xl md:text-5xl font-medium text-secondary mb-4",
     p: "text-lg my-4",
     btn_pregunta: "w-[100%] md:w-[430px] bg-primary h-[61px] w-60 rounded-lg text-textLight text-xl mt-10",
     img_fondo: "object-cover w-full h-1/2 -z-50 absolute bottom-0 mx-auto"

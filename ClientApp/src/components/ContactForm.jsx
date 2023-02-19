@@ -24,7 +24,7 @@ import React from 'react';
          }, 400);
        }}
      >
-       <Form className='w-[90%] flex flex-col pt-2 gap-2 lg:gap-3 xl:gap-4 2xl:gap-8'>
+       <Form className='w-[90%] flex flex-col pt-2 gap-2 xl:gap-4 2xl:gap-8'>
         <div>
           <label htmlFor="name" className='text-xl md:text-2xl  font-normal'>Nombre</label>
           <Field name="name" type="text" placeholder="Alan" className='w-full h-[55px] border-2 rounded-lg border-[#176C6D] placeholder-gray-600 placeholder:text-2xl placeholder:font-normal pl-5 mt-4'/>

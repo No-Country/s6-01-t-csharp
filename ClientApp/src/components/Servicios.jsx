@@ -9,8 +9,8 @@ function Servicios() {
     <div id="servicios" className=" flex justify-center items-center min-h-screen w-full  bg-[#FCFBFE] m-auto">
       <div className="w-[90%] h-full mx-auto pt-[5rem] pb-[5rem] ">
         <div className="w-[80%] m-auto">
-          <h1 className=" text-5xl font-medium text-[#4C0A37] ">Servicios</h1>
-          <p className="text-color-[#000000] text-xl mt-3">
+          <h3 className=" text-3xl md:text-5xl font-medium text-[#4C0A37] text-center md:text-left ">Servicios</h3>
+          <p className="text-color-[#000000] text-base font-normal text-center md:text-left md:text-xl mt-3">
             Estos son los servicios que cuenta la empresa de The Walking Dog,
             los mismos pueden ir cambiando si así se amerita y/o a la necesidad
             del cliente

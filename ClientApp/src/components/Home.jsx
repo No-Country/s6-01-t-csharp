@@ -16,7 +16,7 @@ const Home = () => {
 
     return (
         <div className='w-100% h-screen flex justify-center font-["poppins"]'>
-            <img src={background} alt="background" className='object-cover'/>
+            <img src={background} alt="background" className='w-100% object-cover'/>
 
             <div className='absolute w-full top-0 flex justify-between pt-20 pb-20 md:pt-0 flex-col h-full'>
                 <div className='flex flex-col justify-center items-center content-center gap-2 text-2xl w-[100%]'>

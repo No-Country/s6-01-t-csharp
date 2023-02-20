@@ -3,15 +3,13 @@ import background from '../../src/assets/images/fondo.svg'
 import puppy from '../../src/assets/images/Vectorpuppy.svg'
 import search from '../../src/assets/images/search.svg'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const Home = () => {
 
     const [localidad, setLocalidad] = useState("");
 
-    const onClick = () => {
-        console.log(localidad);
-    }
 
 
     return (
@@ -33,14 +31,14 @@ const Home = () => {
                             onChange={ (e) => setLocalidad(e.target.value) }
                             value = { localidad }/>
                             
-                        <button className='bg-dark w-10 rounded-md computer:w-[20%] computer:h-16 flex content-center items-center justify-center'>
+                        <Link 
+                            to={`/paseadores/${localidad.trim().toLowerCase()}`}
+                            className='bg-dark w-10 rounded-md computer:w-[20%] computer:h-16 flex content-center items-center justify-center'>
                             <img 
                                 src={search} 
                                 alt='iconSearch' 
-                                className='w-[20%] m-auto w- computer:text-sm com'
-                                onClick={ onClick }
-                                />
-                        </button>
+                                className='w-[20%] m-auto w- computer:text-sm com'/>
+                        </Link>
                     </div>
                 </div>
             </div>

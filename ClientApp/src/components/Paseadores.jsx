@@ -29,7 +29,7 @@ export const Paseadores = () => {
                                 <h2>Preferencias:</h2>
                                 <p>Pequeños perros</p>
                             </div>
-                            <h2 className="uppercase font-bold text-[35px]">José Perdomo</h2>
+                            <h2 className="font-bold text-[35px]">José Perdomo</h2>
                         </div>
                     </div>
                 </div>

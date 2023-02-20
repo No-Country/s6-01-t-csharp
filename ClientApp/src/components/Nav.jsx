@@ -39,7 +39,7 @@ function Nav() {
     
 
     const addBgColor = () => {
-        if(window.scrollY > 90 ){
+        if(window.scrollY > 90  || (window.location.pathname === "/login")){
             setBgTransparent(false)
         } else {
             setBgTransparent(true);
@@ -51,9 +51,7 @@ function Nav() {
     return (<>
         <nav className= { style.nav } >
             <div className= 
-            { `${ style.wrapper_nav } 
-                ${ bgTransparente ? style.bg_transparent : style.bg_active }
-                ${window.location.pathname === "/" ? "bg-transparent" : "bg-primary" }` } >
+            { `${ style.wrapper_nav } ${ bgTransparente ? style.bg_transparent : style.bg_active }` } >
                 <a  href="#">
                     <img className="w-14" src={ Logo } alt="Logotipo The Walking Dog" />
                 </a>

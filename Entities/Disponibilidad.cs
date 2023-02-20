@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public DayOfWeek DiaDeLaSemana { get; set; }
-        public TimeSpan HoraInicio { get; set; }
-        public TimeSpan HoraFinal { get; set; }
+        public int HoraInicio { get; set; }
+        public int HoraFinal { get; set; }
     }
 }

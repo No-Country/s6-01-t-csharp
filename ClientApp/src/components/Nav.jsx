@@ -50,7 +50,10 @@ function Nav() {
 
     return (<>
         <nav className= { style.nav } >
-            <div className= { `${ style.wrapper_nav } ${ bgTransparente ? style.bg_transparent : style.bg_active }` } >
+            <div className= 
+            { `${ style.wrapper_nav } 
+                ${ bgTransparente ? style.bg_transparent : style.bg_active }
+                ${window.location.pathname === "/" ? "bg-transparent" : "bg-primary" }` } >
                 <a  href="#">
                     <img className="w-14" src={ Logo } alt="Logotipo The Walking Dog" />
                 </a>

@@ -13,11 +13,6 @@ const AppRoutes = [
         element: <HomePage />
     },
     {
-
-        path: '/servicios',
-        element: <Servicios />
-    },
-    {
         path: '/login',
         element: <LogIn />
     },

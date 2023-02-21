@@ -12,7 +12,8 @@ module.exports = {
         textLight: "#FCFBFE",
         textDark: "#11111",
         "principal": "#01B1B0",
-        "dark": "#176C6D"
+        "dark": "#176C6D",
+        "bgCard": "rgba(255, 255, 255, 1)",
       },
       screens: {
         phone: '390px',
@@ -38,7 +39,8 @@ module.exports = {
         '100%': '100%',
         '6': '1.5rem;',
         '70vw': '70vw',
-      }
+      },
+      
     },
 
     

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using s6_01.Entities.Auth;
+using System.ComponentModel.DataAnnotations;
 
 namespace s6_01.Entities
 {
@@ -19,5 +20,9 @@ namespace s6_01.Entities
         [Required]
         public bool Vacunas { get; set; }
         public string Notas { get; set; } = string.Empty;
+
+        public string PropietarioId { get; set; }
+        public ApplicationUser Propietario { get; set; }
+
     }
 }

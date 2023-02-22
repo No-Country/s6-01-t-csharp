@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using s6_01.Core.Helper;
+using s6_01.Core.Interfaces;
+using s6_01.DataAccess;
 using s6_01.Entities;
 
 namespace s6_01.Controllers
@@ -8,15 +11,18 @@ namespace s6_01.Controllers
     [ApiController]
     public class ReviewsController : ControllerBase
     {
+        IReviewBusiness business;
+        public ReviewsController(IReviewBusiness b)
+        {
+           
+            business = b;
+        }
         // GET: api/<Reviews>
         [HttpGet]
-        public IEnumerable<string> GetAll()
+        public async Task<Response<IEnumerable<ReviewModel>>> GetAll()
         {
-            return new[] {
-            "All Reviews collection",
-            "All Reviews collection",
-            "All Reviews collection",
-            "All Reviews collection" };
+            var res =  await business.Get_AllAsync();
+            return res;
         }
 
         /// <summary>
@@ -26,15 +32,12 @@ namespace s6_01.Controllers
         /// <returns></returns>
         // GET api/<Reviews>/5
         [HttpGet("cliente/{idCliente}")]
-        public IEnumerable<string> GetAllByPCLiente(int idCliente)
+        public async Task<Response<IEnumerable<ReviewModel>>> GetAllByPCLiente(int idCliente)
         {
-            return new[] {
-            $"All Reviews collection {idCliente}",
-            $"All Reviews collection {idCliente}",
-            $"All Reviews collection {idCliente}",
-            $"All Reviews collection {idCliente}" };
+            //TODO : Check if user requested is same who request
+            var res = await business.Get_AllAsync(idCliente);
+            return res;
         }
-
 
         /// <summary>
         /// Get ALl reviews by paseador
@@ -43,13 +46,10 @@ namespace s6_01.Controllers
         /// <returns></returns>
         // GET api/<Reviews>/5
         [HttpGet("paseador/{id}")]
-        public IEnumerable<string> GetAllByPaseador(int id)
+        public async Task<Response<IEnumerable<ReviewModel>>> GetAllByPaseador(int id)
         {
-            return new[] {
-            $"All Reviews collection {id}",
-            $"All Reviews collection {id}",
-            $"All Reviews collection {id}",
-            $"All Reviews collection {id}" };
+            var res = await business.Get_AllAsync(paseadorId:id);
+            return res;
         }
 
         /// <summary>
@@ -69,13 +69,12 @@ namespace s6_01.Controllers
         }
 
 
-
         // POST api/<Reviews>
         [HttpPost("{idPaseo}")]
         public IActionResult Post(int idPaseo, [FromBody] ReviewModel review)
         {
             var id = new Random().Next(10);
-            return  Created($"api/reviews/{id}", review);
+            return Created($"api/reviews/{id}", review);
         }
 
         //// PUT api/<Reviews>/5
@@ -95,9 +94,13 @@ namespace s6_01.Controllers
 
     public class ReviewModel
     {
-        protected int IdPaseo { get; set; }
-        protected DateTime Fecha { get; set; } = DateTime.Now;
-        public int Estrellas { get; set; }  = 1;
+        public int IdReview { get; set; }
+        public int IdPaseo { get; set; }
+        public int IdCliente { get; set; }
+        public int IdPaseador { get; set; }
+
+        public DateTime Fecha { get; set; } = DateTime.Now;
+        public int Estrellas { get; set; } = 1;
         public string Comentario { get; set; } = string.Empty;
     }
 }

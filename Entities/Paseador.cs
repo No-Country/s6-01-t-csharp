@@ -1,5 +1,6 @@
 ﻿using s6_01.Entities.Auth;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace s6_01.Entities
 {
@@ -19,6 +20,8 @@ namespace s6_01.Entities
         [Required]
         public decimal CobroPorHora { get; set; }
         public ICollection<Disponibilidad> Disponibilidad { get; set; } = new List<Disponibilidad>();
+        //TODO: Bug para Manuel
+        [NotMapped]
         public ICollection<string> Preferencias { get; set; } = new List<string>();
         public string Descripcion { get; set; } = "";
     }

@@ -79,7 +79,7 @@ public class AuthController : ControllerBase
         //if (userExists != null)
         //    return StatusCode(StatusCodes.Status400BadRequest, new { Status = "Error", Message = "User already exists!" });
 
-        var emailExists = await userManager.FindByEmailAsync(model.Email);
+        var emailExists = await userManager.FindByEmailAsync(model.Email.ToUpper());
         if (emailExists != null)
             return StatusCode(StatusCodes.Status400BadRequest, new { Status = "Error", Message = "User already exists! | Email is already associated with an account!" });
 
@@ -89,8 +89,19 @@ public class AuthController : ControllerBase
             Email = model.Email,
         };
 
-        var result = await userManager.CreateAsync(user, model.Password);
 
+        IdentityResult result;
+
+        try
+        {
+            result = await userManager.CreateAsync(user, model.Password);
+
+        }
+        catch (Exception e ) 
+        {
+
+            throw;
+        }
         if (!result.Succeeded)
             return StatusCode(StatusCodes.Status500InternalServerError, new { Status = "Error", Message = $"User creation failed! Please check user details and try again. {String.Join(" | ", result.Errors.Select(x => x.Description))}" });
 
@@ -171,7 +182,7 @@ public class AuthController : ControllerBase
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        public string Password { get; set; }  = String.Empty;
+        public string Password { get; set; } = String.Empty;
         [Required]
         [Compare("Password")]
         public string ConfirmPassword { get; set; } = String.Empty;

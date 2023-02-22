@@ -33,22 +33,13 @@ namespace s6_01.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<ApplicationUser>().Property(p => p.IdCliente).UseIdentityColumn();
-
-            //modelBuilder.Entity<ApplicationUser>().Property(p => p.IdCliente)
-            //    .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
-            //modelBuilder.Entity<ApplicationUser>()
-            //    .Property(t => t.IdCliente)
-            //     .ValueGeneratedOnAdd();
-
             RolesSeed.Seed(modelBuilder);
             ClientesSeed.Seed(modelBuilder);
             PaseadorSeed.Seed(modelBuilder);
             MascotasSeed.Seed(modelBuilder);
             PaseosSeed.Seed(modelBuilder);
             ReviewsSeed.Seed(modelBuilder);
-
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

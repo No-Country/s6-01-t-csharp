@@ -11,7 +11,6 @@ namespace s6_01.Core.Business
     public class ReviewBusiness : IReviewBusiness
     {
         TWDContext ctx;
-
         public ReviewBusiness(TWDContext context)
         {
             ctx = context;

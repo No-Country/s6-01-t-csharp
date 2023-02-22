@@ -70,11 +70,11 @@ function Register(){
 
     return(
         <>
-            <div className="container w-11/12 h-screen flex justify-center m-auto py-20">
-                <div className=" bg-neutral-50 mx-auto w-2/3 h-3/4 rounded-md shadow-slate-600 shadow-lg" >
-                    <div className="flex flex-row h-screen rounded-md shadow-slate-500">
+            <div className="container w-11/12 h-full flex justify-center m-auto py-20">
+                <div className=" bg-neutral-50 mx-auto w-[70%] h-[40rem] rounded-md shadow-slate-600 shadow-lg" >
+                    <div className="flex flex-row h-full rounded-md shadow-slate-500">
                          <div className="w-2/4 h-full rounded-md shadow-slate-600 shadow-lg overflow-hidden"> 
-                            <img src={dog2} className=" object-contain " />
+                            <img src={dog2} className=" w-full h-full object-cover " />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
                                 <p className="text-center text-white text-xl">¿Ya tenes una cuenta?</p>                           
                                 <Link to="/login" className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer" >Iniciar Sesión</Link> 

@@ -14,7 +14,7 @@ namespace s6_01.DataAccess.Seeds.Auth
             {
               new ApplicationUser() {
                   Id =  "d30a6fc5-19eb-4403-931c-527dd84febf6",
-                  IdCliente = 1,
+                 // IdCliente = 0,
                   Nombres = "Cliente de prueba",
                   Apellidos = "Apellidos",
                   UserName = "cliente1",

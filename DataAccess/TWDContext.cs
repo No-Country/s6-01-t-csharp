@@ -6,6 +6,7 @@ using s6_01.Entities;
 using s6_01.Entities.Auth;
 using System.Diagnostics;
 using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace s6_01.DataAccess
 {
@@ -31,8 +32,16 @@ namespace s6_01.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           // var cliente1IdGUID = Guid.NewGuid().ToString();
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>().Property(p => p.IdCliente).UseIdentityColumn();
+
+            //modelBuilder.Entity<ApplicationUser>().Property(p => p.IdCliente)
+            //    .Metadata.SetAfterSaveBehavior(PropertySaveBehavior.Ignore);
+            //modelBuilder.Entity<ApplicationUser>()
+            //    .Property(t => t.IdCliente)
+            //     .ValueGeneratedOnAdd();
+
             RolesSeed.Seed(modelBuilder);
             ClientesSeed.Seed(modelBuilder);
             PaseadorSeed.Seed(modelBuilder);

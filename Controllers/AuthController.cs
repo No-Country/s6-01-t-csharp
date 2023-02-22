@@ -74,11 +74,6 @@ public class AuthController : ControllerBase
     [Route("Register")]
     public async Task<IActionResult> Register([FromBody] RegisterModel model)
     {
-
-        //    var userExists = await userManager.FindByNameAsync(model.Username);
-        //if (userExists != null)
-        //    return StatusCode(StatusCodes.Status400BadRequest, new { Status = "Error", Message = "User already exists!" });
-
         var emailExists = await userManager.FindByEmailAsync(model.Email.ToUpper());
         if (emailExists != null)
             return StatusCode(StatusCodes.Status400BadRequest, new { Status = "Error", Message = "User already exists! | Email is already associated with an account!" });
@@ -89,31 +84,23 @@ public class AuthController : ControllerBase
             Email = model.Email,
         };
 
-
-        IdentityResult result;
-
         try
         {
-            result = await userManager.CreateAsync(user, model.Password);
+            var result = await userManager.CreateAsync(user, model.Password);
 
+            if (!result.Succeeded)
+                return StatusCode(StatusCodes.Status500InternalServerError, new { Status = "Error", Message = $"User creation failed! Please check user details and try again. {String.Join(" | ", result.Errors.Select(x => x.Description))}" });
+
+            var roleMessage = "";
+            var resultRoleAssign = await userManager.AddToRoleAsync(user, UserRoles.User);
+            if (resultRoleAssign.Succeeded) roleMessage = " as User Role";
+            emailBusiness.SendWelcomeEmailAsync(model.Username, model.Email);
+            return Ok(new { Status = "Success", Message = $"User created {roleMessage} successfully!" });
         }
-        catch (Exception e ) 
+        catch (Exception e)
         {
-
             throw;
         }
-        if (!result.Succeeded)
-            return StatusCode(StatusCodes.Status500InternalServerError, new { Status = "Error", Message = $"User creation failed! Please check user details and try again. {String.Join(" | ", result.Errors.Select(x => x.Description))}" });
-
-        var resultRoleAssign = await userManager.AddToRoleAsync(user, UserRoles.User);
-        var roleMessage = "";
-
-        if (resultRoleAssign.Succeeded) roleMessage = " as User Role";
-
-        //TODO not awaiting can lead mail not get delivered -Inyected as SIngleton
-        emailBusiness.SendWelcomeEmailAsync(model.Username, model.Email);
-
-        return Ok(new { Status = "Success", Message = $"User created {roleMessage} successfully!" });
     }
 
     [HttpPost("ForgotPassword")]

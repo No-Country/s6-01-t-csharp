@@ -7,7 +7,7 @@ namespace s6_01.Entities.Auth
     public class ApplicationUser : IdentityUser
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int? IdCliente { get; set; }
+        public int IdCliente { get; private set; } 
         public string? Nombres { get; set; }
         public string? Apellidos { get; set;} 
         public string? Telefono {get;set;}

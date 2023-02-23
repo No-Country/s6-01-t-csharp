@@ -85,7 +85,6 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<IEmailService, EmailService>();
 builder.Services.AddSingleton<IEmailBusiness, EmailBusiness>();
-
 builder.Services.AddScoped<IReviewBusiness, ReviewBusiness>();
 
 var app = builder.Build();

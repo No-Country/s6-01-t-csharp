@@ -45,7 +45,7 @@ function LogIn(){
             <Nav />
             <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
 
-                    <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-[600px] 2xl:h-[800px]">
+                    <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-[550px] 2xl:h-[700px]">
                         <div className=" h-[400px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
                             <img src={dog} className="h-full w-full object-cover md:rounded-md" />
                             <div className='flex flex-col justify-center -my-52 gap-4'>

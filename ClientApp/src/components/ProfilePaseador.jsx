@@ -5,7 +5,7 @@ import starGreen from "../assets/images/Star-G.svg"
 import like from "../assets/images/like.svg"
 import disLike from "../assets/images/dislike.svg"
 
-export const Paseadores = () => {
+export const ProfilePaseador = () => {
     return (
         <>
             <div className="pt-32 pl-10 pr-10 flex flex-col flex-wrap">

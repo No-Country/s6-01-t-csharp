@@ -10,6 +10,7 @@ import face from '../assets/images/facebook.png';
 import eye1 from '../assets/images/visibilidad.png';
 import noEye1 from '../assets/images/invisible.png';
 import {useState} from 'react';
+import Nav from '../components/Nav';
 
 
 function Register(){
@@ -70,6 +71,7 @@ function Register(){
 
     return(
         <>
+            <Nav/>
             <div className="container w-11/12 h-screen flex justify-center m-auto py-20">
                 <div className=" bg-neutral-50 mx-auto w-2/3 h-3/4 rounded-md shadow-slate-600 shadow-lg" >
                     <div className="flex flex-row h-screen rounded-md shadow-slate-500">

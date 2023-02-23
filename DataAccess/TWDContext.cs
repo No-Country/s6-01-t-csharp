@@ -33,6 +33,14 @@ namespace s6_01.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Paseador>()
+            .HasKey(p => p.Id); 
+            modelBuilder.Entity<Paseador>()
+                .Property(p => p.Preferencias)
+                .HasConversion(
+                    v => string.Join(',', v),
+                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
+                );
             modelBuilder.Entity<ApplicationUser>().Property(p => p.IdCliente).UseIdentityColumn();
             RolesSeed.Seed(modelBuilder);
             ClientesSeed.Seed(modelBuilder);

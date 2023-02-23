@@ -21,7 +21,10 @@ namespace s6_01.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Paseador>>> Get()
         {
-            var paseadores = await _context.Paseadores.ToListAsync();
+            var paseadores = await _context.Paseadores
+                .Include(a=>a.Disponibilidad)
+                .Include(a=>a.Preferencias)
+                .ToListAsync();
             return paseadores;
         }
 
@@ -29,7 +32,10 @@ namespace s6_01.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Paseador>> Get(int id)
         {
-            var paseador = await _context.Paseadores.FindAsync(id);
+            var paseador = await _context.Paseadores
+                .Include(a => a.Disponibilidad)
+                .Include(a => a.Preferencias)
+                .FirstAsync(a=>a.Id == id);
 
             if (paseador == null)
             {
@@ -43,10 +49,19 @@ namespace s6_01.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Paseador paseador)
         {
-            _context.Paseadores.Add(paseador);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Paseadores.Add(paseador);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPaseador", new { id = paseador.Id }, paseador);
+                return CreatedAtAction("GetPaseador", new { id = paseador.Id }, paseador);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+                throw;
+            }
+
         }
 
         // PUT api/<PaseadoresController>/5

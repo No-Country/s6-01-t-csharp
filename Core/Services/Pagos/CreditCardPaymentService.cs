@@ -7,7 +7,7 @@
             //10% will fail
             var result = true;
             var randomNumber = new Random().Next(100);
-            if (randomNumber >= 90) 
+            if (randomNumber >= 90)
                 result = false;
 
             return new PaymentResponse()
@@ -33,13 +33,18 @@
 
     public class PaymentResponse
     {
-        public string Id { get; set; } 
+        public string Id { get; set; }
         public DateTime DateTimeApplied { get; set; }
-        public bool Status {get; set; }
+        public bool Status { get; set; }
         public string StatusMessage { get; set; }
         public decimal Value { get; set; }
         public string BeneficiaryName { get; set; }
         public int BeneficiaryId { get; set; }
 
+        public override string ToString()
+        {
+            var status = Status ? "Success":"Fail";
+            return $"Payment Id : {Id}, Date : {DateTimeApplied.ToString()}, Status :{status}, Beneficiary: {BeneficiaryName}";
+        }
     }
 }

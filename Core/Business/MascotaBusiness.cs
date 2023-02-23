@@ -7,10 +7,10 @@ namespace s6_01.Core.Business
 {
     public class MascotaBusiness: IMascotaBusiness
     {
-        private readonly TWDContext _dbcontext;
+        private readonly TWDContext ctx;
         public MascotaBusiness( TWDContext context)
         {
-            _dbcontext = context;
+            ctx = context;
         }
 
         public Task<Response<bool>> CreateAsycn(MascotaDto entity)

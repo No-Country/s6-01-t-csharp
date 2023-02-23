@@ -19,7 +19,8 @@ const enlaces = [0, 1, 2, 3 ,4 ];
 
 function Nav( { bgNav } ) {    
 
-    const [bgTransparente, setBgTransparent ] = useState(bgNav);
+    const [bgTransparente, setBgTransparent ] = useState(true);
+    const [ bgNave, setBgNave ] = useState( bgNav );
 
     const [idEnlace, setIdEnlace] = useState(0);
 
@@ -30,7 +31,7 @@ function Nav( { bgNav } ) {
 
     const addBgColor = () => {
         if(window.scrollY > 90 ){
-            setBgTransparent(false)
+            setBgTransparent(false);
         } else {
             setBgTransparent(true);
         }
@@ -43,7 +44,7 @@ function Nav( { bgNav } ) {
     return (<>
         <nav className= { style.nav } >
             <div className= 
-            { `${ style.wrapper_nav } ${ bgTransparente ? style.bg_transparent : style.bg_active }` } >
+            { `${ style.wrapper_nav } ${ (bgTransparente && bgNav)? style.bg_transparent : style.bg_active }` } >
                 <a  href="#">
                     <img className="w-14" src={ Logo } alt="Logotipo The Walking Dog" />
                 </a>

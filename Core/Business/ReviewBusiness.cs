@@ -53,35 +53,58 @@ namespace s6_01.Core.Business
             {
                 Data = allreviews.ToList(),
                 Message = $"count: {allreviews.Count()}",
-                IsSucces = true
+                IsSuccess = true
             });
+        }
+        public async Task<Response<ReviewModel>> GetByIdAsync(int id)
+        {
+            var obj = await ctx.Reviews.Include( x => x.Paseo).FirstOrDefaultAsync( x => x.Id == id);
+            if (obj == null)
+                return new Response<ReviewModel>() { Message = "Not found" };
+
+            return new Response<ReviewModel>() {Data = obj.ToViewModel(), IsSuccess = true };
+        }
+
+
+        public async Task<Response<ReviewModel>> CreateAsync(ReviewModel model)
+        {
+            var paseoId = model.IdPaseo;
+            var paseo = await ctx.Paseos.Include(p => p.Review).FirstOrDefaultAsync(x => x.IdPaseo == paseoId);
+            if (paseo == null)
+                return await Task.FromResult(new Response<ReviewModel>() { IsSuccess = false, Message = "paseo not found" });
+
+            //If already has a review => false
+            if (paseo.Review != null)
+                return await Task.FromResult(new Response<ReviewModel>() { IsSuccess = false, Message = "paseo already has a review" });
+
+            //if paseo hasn't been executed => false
+            if (paseo.FechaEnd.ToUniversalTime() > DateTime.UtcNow)
+                return await Task.FromResult(new Response<ReviewModel>() { IsSuccess = false, Message = "paseo hasn't ended" });
+
+            //if user isn't the same who hired paseador = > false
+            if (paseo.IdCliente != model.IdCliente)
+                return await Task.FromResult(new Response<ReviewModel>() { IsSuccess = false, Message = "you can't left a review on this paseo" });
+
+            var obj = model.ToEntity();
+            //  obj.Paseo = paseo;
+            //    ctx.Entry(obj).State = EntityState.Added;
+            ctx.Reviews.Add(obj);
+            await ctx.SaveChangesAsync();
+            return await Task.FromResult(new Response<ReviewModel>() { Data = obj.ToViewModel(), IsSuccess = true, Message = "" });
+
         }
 
         #region Pending implementation
-
-        public Task<Response<bool>> CreateAsycn(ReviewModel entity)
-        {
-            //If already has a review => false
-            //if paseo hasn't been executed => false
-            //if user isn't the same who hired paseador = > false
-
-            throw new NotImplementedException();
-        }
-
         public Task<Response<bool>> DeleteAsycn(string Id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response<ReviewModel>> GetByIdAsycn(string Id)
-        {
-            throw new NotImplementedException();
-        }
         public Task<Response<bool>> UpdateAsycn(ReviewModel entity)
         {
             throw new NotImplementedException();
         }
-    }
 
+    }
     #endregion
 }

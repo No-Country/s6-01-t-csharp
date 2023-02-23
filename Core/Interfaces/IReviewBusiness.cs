@@ -6,9 +6,9 @@ namespace s6_01.Core.Interfaces
 {
     public interface IReviewBusiness
     {
-        Task<Response<ReviewModel>> GetByIdAsycn(string Id);
+        Task<Response<ReviewModel>> GetByIdAsync(int Id);
         Task<Response<IEnumerable<ReviewModel>>> Get_AllAsync(int? clienteId = 0,int? paseadorId= 0);
-        Task<Response<bool>> CreateAsycn(ReviewModel entity);
+        Task<Response<ReviewModel>> CreateAsync(ReviewModel entity);
         Task<Response<bool>> UpdateAsycn(ReviewModel entity);
         Task<Response<bool>> DeleteAsycn(string Id);
     }

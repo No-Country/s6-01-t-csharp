@@ -6,7 +6,7 @@ namespace s6_01.Entities
     {
         public int Id { get; set; }
         public int PaseoId { get; set; }
-        public Paseo Paseo { get; set; }
+        public virtual Paseo Paseo { get; set; }
         public DateTime Fecha { get; set; }
         [Range(1,5,ErrorMessage ="Out of range")]
         public int Estrellas { get; set; }

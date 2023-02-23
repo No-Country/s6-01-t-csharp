@@ -19,7 +19,9 @@ namespace s6_01.Entities
         [MaxLength(20)]
         public string ZonaPso { get; set; }
         public float Tarifa { get; set; }
-        public ReviewPaseo Review { get; set; } 
+        public virtual ReviewPaseo Review { get; set; }
+        //public int ReviewPaseoId { get; set; }
+
         public int MascotaId { get; set; }
         public Mascota Mascota { get; set; } 
 

@@ -32,5 +32,31 @@ namespace s6_01.Core.Mapper.Reviews
             IEnumerable<ReviewModel>  dtos = reviews.Select(x => x.ToViewModel());
             return dtos;
         }
+
+        public static ReviewModel ToViewModel(this CreateReviewModel review,int idCliente)
+        {
+            var dto = new ReviewModel()
+            {
+                IdPaseo = review.IdPaseo,
+                Comentario = review.Comentario,
+                Estrellas = review.Estrellas,
+                IdCliente = idCliente,
+            };
+            return dto;
+        }
+
+        public static ReviewPaseo ToEntity(this ReviewModel review)
+        {
+            var obj = new ReviewPaseo()
+            {
+                Id = review.IdReview,
+                PaseoId = review.IdPaseo,
+                Fecha = DateTime.Now,
+                Comentario = review.Comentario,
+                Estrellas = review.Estrellas,
+            };
+            return obj;
+        }
+
     }
 }

@@ -22,8 +22,7 @@ namespace s6_01.Controllers
         public async Task<ActionResult<IEnumerable<Paseador>>> Get()
         {
             var paseadores = await _context.Paseadores
-                .Include(a=>a.Disponibilidad)
-                .Include(a=>a.Preferencias)
+                .Include(a => a.Disponibilidad)
                 .ToListAsync();
             return paseadores;
         }
@@ -34,7 +33,6 @@ namespace s6_01.Controllers
         {
             var paseador = await _context.Paseadores
                 .Include(a => a.Disponibilidad)
-                .Include(a => a.Preferencias)
                 .FirstAsync(a=>a.Id == id);
 
             if (paseador == null)

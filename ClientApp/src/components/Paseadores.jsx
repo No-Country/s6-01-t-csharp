@@ -4,6 +4,7 @@ import Paseador2 from "../assets/images/paseador2.png";
 import Paseador3 from "../assets/images/paseador3.png";
 import { useState } from 'react'
 import { CardPaseador } from './CardPaseador';
+import Nav from './Nav';
 
 
 const styles = {
@@ -25,7 +26,8 @@ export const Paseadores = () => {
 
 
     return (<>
-        <div className='w-full '>
+        <Nav />
+        <div className='w-full  pt-[10vh]'>
             <section className={ styles.wrapper }>
                 <div className={ styles.buscador }>
                     <input 

@@ -44,7 +44,7 @@
 
 	<ItemGroup>
 		<Folder Include="DataAccess\Models\" />
-		<Folder Include="Migrations\" />
+		<Folder Include="DataAccess\Seeds\ClientesSeed\" />
 	</ItemGroup>
 
 	<ItemGroup>

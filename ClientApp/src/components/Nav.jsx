@@ -17,19 +17,10 @@ const style = {
 const enlaces = [0, 1, 2, 3 ,4 ];
 
 
-function Nav() {    
+function Nav( { bgNav } ) {    
 
     const [bgTransparente, setBgTransparent ] = useState(true);
-
-    // let url = window.location.pathname
-
-    // if(url !== '/Home'){
-    //     {style.nav = 'h-[10vh] w-full fixed z-50 bg-teal-700'}
-    //     {style.btn_login = "bg-primary  w-40 py-2 px-4 rounded-lg text-white text-xl bg-teal-500"}
-    // }else{
-    //     {style.nav = 'h-[10vh] w-full fixed z-50 bg-transparent'}
-    //     {style.btn_login = "bg-primary  w-40 py-2 px-4 rounded-lg text-white text-xl bg-transparent"}
-    // }
+    const [ bgNave, setBgNave ] = useState( bgNav );
 
     const [idEnlace, setIdEnlace] = useState(0);
 
@@ -40,7 +31,7 @@ function Nav() {
 
     const addBgColor = () => {
         if(window.scrollY > 90 ){
-            setBgTransparent(false)
+            setBgTransparent(false);
         } else {
             setBgTransparent(true);
         }
@@ -48,9 +39,12 @@ function Nav() {
 
     window.addEventListener("scroll", addBgColor);
 
+    
+
     return (<>
         <nav className= { style.nav } >
-            <div className= { `${ style.wrapper_nav } ${ bgTransparente ? style.bg_transparent : style.bg_active }` } >
+            <div className= 
+            { `${ style.wrapper_nav } ${ (bgTransparente && bgNav)? style.bg_transparent : style.bg_active }` } >
                 <a  href="#">
                     <img className="w-14" src={ Logo } alt="Logotipo The Walking Dog" />
                 </a>

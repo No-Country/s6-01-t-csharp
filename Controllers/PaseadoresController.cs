@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using s6_01.DataAccess;
 using s6_01.Entities;
 
@@ -18,35 +19,66 @@ namespace s6_01.Controllers
         }
         // GET: api/<PaseadoresController>
         [HttpGet]
-        public IEnumerable<Paseador> Get()
+        public async Task<ActionResult<IEnumerable<Paseador>>> Get()
         {
-            return _context.Paseadores.ToList();
+            var paseadores = await _context.Paseadores.ToListAsync();
+            return paseadores;
         }
 
         // GET api/<PaseadoresController>/5
         [HttpGet("{id}")]
-        public Paseador Get(int id)
+        public async Task<ActionResult<Paseador>> Get(int id)
         {
-            return _context.Paseadores.First(a=>a.Id == id);
+            var paseador = await _context.Paseadores.FindAsync(id);
+
+            if (paseador == null)
+            {
+                return NotFound();
+            }
+
+            return paseador;
         }
 
         // POST api/<PaseadoresController>
         [HttpPost]
-        public void Post([FromBody] Paseador value)
+        public async Task<IActionResult> Post([FromBody] Paseador paseador)
         {
+            _context.Paseadores.Add(paseador);
+            await _context.SaveChangesAsync();
 
+            return CreatedAtAction("GetPaseador", new { id = paseador.Id }, paseador);
         }
 
         // PUT api/<PaseadoresController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Paseador value)
+        public async Task<IActionResult> Put(int id, [FromBody] Paseador paseador)
         {
+            if (id != paseador.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(paseador).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         // DELETE api/<PaseadoresController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var paseador = await _context.Paseadores.FindAsync(id);
+
+            if (paseador == null)
+            {
+                return NotFound();
+            }
+
+            _context.Paseadores.Remove(paseador);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }

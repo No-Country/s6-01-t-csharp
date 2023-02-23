@@ -7,8 +7,8 @@ import ContactForm from './ContactForm'
 
 const Contacto = () => {
   return (
-    <div id='contacto' className='flex items-center justify-center bg-white min-h-screen md:h-screen'>
-        <div className='w-[100%] md:h-5/6 2xl:h-[900px] flex flex-col md:flex-row justify-center items-center'>
+    <div id='contacto' className='flex items-center justify-center bg-white min-h-screen md:min-h-screen'>
+        <div className='w-[100%] md:h-[720px] 2xl:h-[900px] flex flex-col md:flex-row justify-center items-center md:my-20'>
             <div className='w-[100%] md:w-[48%] lg:w-[550px] h-[550px] md:h-full justify-center content-center md:rounded-lg md:shadow-xl relative'>
                   <img src={imgcontacto} alt="background-img" className='absolute object-cover w-full h-full md:rounded-lg shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]'/>
                 <div className='bg-[#176C6D] absolute w-full h-full opacity-80 md:rounded-lg'></div>

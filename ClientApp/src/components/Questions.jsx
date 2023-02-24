@@ -14,7 +14,7 @@ function Questions({title, description, active, setActive}){
                             </div>
                     </div>
 
-                <div className={(active === title ? ' h-[180px] opacity-1' : " ") + ' bg-[#176C6D] rounded-b-lg flex overflow-hidden h-0 opacity-1 transition-all ease-in-out duration-[1s]'}  >
+                <div className={(active === title ? ' h-[200px] opacity-1' : " ") + ' bg-[#176C6D] rounded-b-lg flex overflow-hidden h-0 opacity-1 transition-all ease-in-out duration-[1s]'}  >
                     <div className=' text-white p-3 font-semibold text-xs'>
                         <p>
                             {description}

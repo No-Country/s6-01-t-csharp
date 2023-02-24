@@ -3,6 +3,31 @@ import React from 'react';
  import * as Yup from 'yup';
  
  const ContactForm = () => {
+
+    const postData = async (data) => {
+      const url = "/api/Comentarios"
+
+      try {
+        const res = await fetch(url, {
+          method:'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "nombre": data.name,
+            "email": data.email,
+            "asunto": "string",
+            "mensaje": data.consultation
+          })
+        })
+        const result = await res
+        return result
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+
    return (
      <Formik
        initialValues={{ name: '', email: '', consultation: '' }}
@@ -17,11 +42,8 @@ import React from 'react';
           .max(200, 'Deben ser 200 caracteres o menos')
           .required('Campo requerido'),
        })}
-       onSubmit={(values, { setSubmitting }) => {
-         setTimeout(() => {
-           alert(JSON.stringify(values, null, 2));
-           setSubmitting(false);
-         }, 400);
+       onSubmit={(values) => {
+         postData(values)
        }}
      >
        <Form className='w-[90%] flex flex-col pt-1'>

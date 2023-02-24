@@ -90,6 +90,8 @@ builder.Services.AddScoped<IReviewBusiness, ReviewBusiness>();
 builder.Services.AddScoped(typeof(CreditCardPaymentService));
 builder.Services.AddScoped<IPagoBusiness, PagoBusiness>();
 
+builder.Services.AddScoped(typeof(PaseoBusiness));
+
 var app = builder.Build();
 app.UseStaticFiles();
 app.UseSwagger();

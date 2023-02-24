@@ -17,8 +17,8 @@ namespace s6_01.Controllers
             this.context = context;
         }
 
-        [HttpGet("{areaAtendida}")]
-        public IActionResult Buscar(string query)
+        [HttpGet]
+        public IActionResult BuscarPaseadores(string query)
         {
             if (string.IsNullOrEmpty(query) || query.Length < 3)
             {
@@ -26,12 +26,12 @@ namespace s6_01.Controllers
                 return Ok(new List<string>());
             }
 
-            var direcciones = context.Paseadores
-                                       .Where(p => p.Direccion.Contains(query))
-                                       .Select(p => p.Direccion)
-                                       .ToList();
+            var directions = context.Paseadores.Where(p => p.Direccion.Contains(query)).Select(p => p.Direccion).ToList();
+            var walkers = context.Paseadores.Where(p => p.Direccion.Contains(query)).ToList();
 
-            return Ok(direcciones);
+            var result = new { Directions = directions, Walkers = walkers };
+
+            return Ok(result);
         }
     }
 }

@@ -49,6 +49,7 @@ namespace s6_01.Controllers
         {
             try
             {
+                paseador.Avatar += paseador.CorreoElectronico; 
                 _context.Paseadores.Add(paseador);
                 await _context.SaveChangesAsync();
 

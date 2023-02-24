@@ -19,13 +19,14 @@ namespace s6_01.DataAccess.Seeds
                     Direccion = "Calle 123",
                     Telefono = 1234567890,
                     CobroPorHora = 50.0m,
-                    Descripcion = "Soy un paseador de perros con más de 5 años de experiencia.",
+                    Descripcion = "Soy un paseador de perros con más de 5 años de experiencia.",                    
                     Preferencias = new List<string>
                     {
                         "Golden Retriever",
                         "Labrador Retriever",
                         "Pastor Alemán"
-                    }
+                    },
+                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}"
                 },
                 new Paseador
                 {
@@ -42,7 +43,8 @@ namespace s6_01.DataAccess.Seeds
                         "Caniche",
                         "Bichón Frisé",
                         "Shih Tzu"
-                    }
+                    },
+                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}"
                 },
                 new Paseador
                 {
@@ -53,6 +55,7 @@ namespace s6_01.DataAccess.Seeds
                     Direccion = "Calle 45 #23-56",
                     Telefono = 311234567,
                     CobroPorHora = 25000.00m,
+                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}",
                     Preferencias = new List<string> { "Perros grandes", "Caminatas largas", "Juegos de pelota" },
                     Descripcion = "Soy un amante de los perros y me encanta pasearlos por el parque. Me gusta jugar con ellos y asegurarme de que estén bien hidratados durante la caminata."
                 },
@@ -64,7 +67,8 @@ namespace s6_01.DataAccess.Seeds
                     CorreoElectronico = "luis.hernandez@example.com",
                     Direccion = "Calle 123, Colonia Centro",
                     Telefono = 555134567,
-                    CobroPorHora = 150.0M,              
+                    CobroPorHora = 150.0M,
+                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}",
                     Preferencias = new List<string>
                     {
                         "Caminar por el parque",
@@ -82,6 +86,7 @@ namespace s6_01.DataAccess.Seeds
                     Direccion = "Calle 30 #14-32",
                     Telefono = 316876543,
                     CobroPorHora = 20000.00m,
+                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}",
                     Preferencias = new List<string> { "Perros pequeños", "Caminatas cortas", "Juegos de búsqueda" },
                     Descripcion = "Soy una paseadora de perros con experiencia de 2 años, amo a los perros y me encanta caminar con ellos."
                 }

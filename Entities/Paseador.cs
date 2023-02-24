@@ -19,9 +19,8 @@ namespace s6_01.Entities
         public int Telefono { get; set; }
         [Required]
         public decimal CobroPorHora { get; set; }
+        public string Avatar { get; set; } = "https://i.pravatar.cc/150?u=";
         public ICollection<Disponibilidad> Disponibilidad { get; set; } = new List<Disponibilidad>();
-        //TODO: Bug para Manuel
-        [NotMapped]
         public ICollection<string> Preferencias { get; set; } = new List<string>();
         public string Descripcion { get; set; } = "";
     }

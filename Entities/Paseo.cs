@@ -25,8 +25,8 @@ namespace s6_01.Entities
         public int MascotaId { get; set; }
         public Mascota Mascota { get; set; } 
 
-        public Paseador Paseador { get; set; } 
-        public int PaseadorId { get; set; }
+        public Paseador? Paseador { get; set; } 
+        public int? PaseadorId { get; set; }
 
         //public ApplicationUser Cliente { get; set; } = new ApplicationUser();
         //[ForeignKey("ApplicationUser")]

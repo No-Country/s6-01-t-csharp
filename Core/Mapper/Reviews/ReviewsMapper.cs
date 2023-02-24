@@ -22,7 +22,7 @@ namespace s6_01.Core.Mapper.Reviews
               Comentario = review.Comentario,
               Estrellas = review.Estrellas,
               IdCliente = review.Paseo.IdCliente,
-              IdPaseador = review.Paseo.PaseadorId
+              IdPaseador = review.Paseo.PaseadorId.Value
             };
             return dto;
         }

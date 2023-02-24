@@ -86,7 +86,6 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<IEmailService, EmailService>();
 builder.Services.AddSingleton<IEmailBusiness, EmailBusiness>();
-
 builder.Services.AddScoped<IReviewBusiness, ReviewBusiness>();
 builder.Services.AddScoped(typeof(CreditCardPaymentService));
 builder.Services.AddScoped<IPagoBusiness, PagoBusiness>();

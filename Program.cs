@@ -9,6 +9,7 @@ using s6_01.Core.Business.Email.Interfaces;
 using s6_01.Core.Interfaces;
 using s6_01.Core.Services.Email;
 using s6_01.Core.Services.Email.Interfaces;
+using s6_01.Core.Services.Pagos;
 using s6_01.DataAccess;
 using s6_01.Entities.Auth;
 using System.Reflection;
@@ -86,6 +87,8 @@ builder.Services.AddControllers();
 builder.Services.AddSingleton<IEmailService, EmailService>();
 builder.Services.AddSingleton<IEmailBusiness, EmailBusiness>();
 builder.Services.AddScoped<IReviewBusiness, ReviewBusiness>();
+builder.Services.AddScoped(typeof(CreditCardPaymentService));
+builder.Services.AddScoped<IPagoBusiness, PagoBusiness>();
 
 var app = builder.Build();
 app.UseStaticFiles();

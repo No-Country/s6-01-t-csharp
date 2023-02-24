@@ -1,4 +1,8 @@
-﻿using s6_01.DataAccess;
+﻿/*
+ PRE: For payment paseo must exist
+ 
+ */
+using s6_01.DataAccess;
 
 namespace s6_01.Core.Business
 {

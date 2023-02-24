@@ -8,7 +8,7 @@ import disLike from "../assets/images/dislike.svg"
 export const Paseadores = () => {
     return (
         <>
-            <div className="pt-32 pl-10 pr-10 flex flex-col flex-wrap">
+            <div className="pt-32 pl-10 pr-10 flex flegit x-col flex-wrap">
                 <div className="flex gap-4 flex-wrap">
                     <button className="-mt-52 mr-6">
                         <svg className="w-14" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

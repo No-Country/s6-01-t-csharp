@@ -73,7 +73,7 @@ function Register(){
         <>
             <Nav/>
             <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
-                <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-[600px] 2xl:h-[800px]" >
+                <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-[550px] 2xl:h-[800px]" >
                         <div className="h-[400px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
                             <img src={dog2} className=" h-full w-full object-cover md:rounded-md" />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
@@ -155,7 +155,7 @@ function Register(){
                                         <ErrorMessage name='pazzword2' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.pazzword2}</div>)} />
                                 </div>
                                 </div>
-                                <div className='mt-10 mb-10'>
+                                <div className='mt-10 mb-5'>
                                     <h4 className='my-3 font-semibold'>Tipo de usuario</h4>
                                     <fieldset className='flex flex-row gap-3' >
                                         <Field type='radio' name='typeOfUser' value='Cliente' id='typeOfUser' /><p>Cliente</p>
@@ -163,7 +163,9 @@ function Register(){
                                     </fieldset> 
                                     <ErrorMessage name='typeOfUser' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.typeOfUser}</div>)} />
                                 </div> 
-                                <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
+                                <div className='w-full flex justify-center'>
+                                    <button className="mx-auto text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
+                                </div>
                                 </Form>
                                     )}                            
                             </Formik>

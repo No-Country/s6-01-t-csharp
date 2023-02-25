@@ -42,6 +42,9 @@ module.exports = {
       },
       backgroundImage: {
         'back': "url('../src/assets/images/Rectangle-34.png')"
+      },
+      backgroundPosition: {
+        leften: 'center 30% ',
       }
       
     },

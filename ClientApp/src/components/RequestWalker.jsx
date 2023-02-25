@@ -11,12 +11,16 @@ function RequestWalker(){
 
     return(
         <>
-            <div className="container w-11/12 h-full flex justify-center m-auto py-20">
+            {/* <div className=" w-11/12 h-full flex justify-center m-auto py-20 sm:w-screen sm:h-screen">
                 <div className=" bg-back bg-cover mx-auto w-[70%] h-[37rem] rounded-md shadow-slate-600 shadow-lg" >
-                    <div className="flex flex-row h-full rounded-md shadow-slate-500 p-3 ">
-                        
-                        <div className="p-3 mx-auto w-2/4 h-full flex flex-col justify-center">
-                            <h3 className="flex flex-col text-white font-semibold text-xl -mt-4 mb-4 ">Solicitar paseador</h3>
+                    <div className="flex flex-row h-full rounded-md shadow-slate-500 p-3 "> */}
+                <div className=" w-full h-full lg:w-11/12 lg:h-full lg:flex lg:justify-center lg:m-auto lg:py-20" >
+                    <div className=" bg-back bg-cover bg-leften lg:bg-center lg:mx-auto lg:w-[70%] lg:h-[37rem] lg:rounded-md lg:shadow-slate-600 lg:shadow-lg">
+                        <div className="flex flex-col h-full rounded-md shadow-slate-500 p-3 lg:flex-row ">
+                        {/* className="p-3 mx-auto w-2/4 h-full flex flex-col justify-center" */}
+                        <div className="p-3 w-[full] h-full flex flex-col justify-center lg:mx-auto lg:w-2/4 ">
+                        {/* className="flex flex-col text-white font-semibold text-xl -mt-4 mb-4 " */}
+                            <h3 className="flex flex-col text-center w-full text-white font-semibold text-xl mt-10 mb-4 lg:text-start lg:text-xl lg:mt-4 lg:mb-4">Solicitar paseador</h3>
                             <Formik
                             
                             initialValues={{
@@ -73,11 +77,17 @@ function RequestWalker(){
                                 </div>
                                 <div className='my-6'>
                                     <h4 className='text-white my-3 font-semibold'>Tamaño *</h4>
-                                    <fieldset className='text-white flex flex-row gap-3' >
-                                        <Field  type='radio' name='typeOfDog' value='Pequeño' id='typeOfDog' /><p>Pequeño</p>
-                                        <Field  type='radio' name='typeOfDog' value='Mediano' id='typeOfDog2' /><p>Mediano</p>
-                                        <Field  type='radio' name='typeOfDog' value='Grande' id='typeOfDog3' /><p>Grande</p>
-                                    </fieldset> 
+                                    <fieldset className='text-white flex flex-col gap-2 lg:flex-row lg:gap-1' >
+                                        <div className='flex justify-end flex-row-reverse gap-3 lg:flex-row lg:justify-start'>
+                                            <Field  type='radio' name='typeOfDog' value='Pequeño' id='typeOfDog' /><p className='w-[6rem]'>Pequeño</p>
+                                        </div>
+                                        <div className='flex justify-end flex-row-reverse gap-3 lg:flex-row lg:justify-start'>
+                                            <Field  type='radio' name='typeOfDog' value='Mediano' id='typeOfDog2' /><p className='w-[6rem]'>Mediano</p>
+                                        </div>
+                                        <div className='flex justify-end flex-row-reverse gap-3 lg:flex-row lg:justify-start'>
+                                            <Field  type='radio' name='typeOfDog' value='Grande' id='typeOfDog3' /><p className='w-[6rem]'>Grande</p>
+                                        </div>
+                                    </fieldset>
                                     <div className='h-[0.3rem]'>
                                         <ErrorMessage name='typeOfDog' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.typeOfDog}</div>)} />
                                     </div>
@@ -134,7 +144,7 @@ function RequestWalker(){
                                             </div>
                                 </div>
                                 </div>
-                                <div className='flex flex-row' >
+                                <div className='flex flex-row justify-center lg:justify-start' >
                                     <div className="flex justify-center text-sm bg-[#a6b4b5] hover:bg-[#9aa8a9e7] duration-150 rounded-md w-[11rem] h-[2rem]">
                                         <span className='flex flex-row' >                      
                                             {photo 
@@ -153,15 +163,15 @@ function RequestWalker(){
                                     <p className='text-white ml-[1rem]' >*</p>                                    
                                 </div>
                                 <ErrorMessage name='photo' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.photo}</div>)} />
-                                <div className='ml-[30rem] -mt-[10rem] absolute ' >
+                                <div className=' absolute mt-[8rem] ml-[3rem] sm:ml-[12rem] md:ml-[18rem] lg:ml-[23rem] lg:-mt-[10rem] xl:ml-[30rem] xl:-mt-[10rem] ' >
                                     <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-[#01b1b15e] hover:bg-[#33baba67] duration-150 rounded-md w-[11rem] h-[2rem] p-1" >Enviar solicitud</button>
                                 </div>
                                 </Form>
                                 )}
                             </Formik>
                         </div>
-                        <div className="text-white text-sm w-2/4 h-full rounded-md flex justify-start flex-col overflow-hidden mt-[2rem] "> 
-                            <p className='p-10' >
+                        <div className="text-white text-sm w-[95%] h-full rounded-md flex justify-start flex-col overflow-hidden "> 
+                            <p className='p-1 pb-[8rem] lg:p-10' >
                                 Durante el paseo el paseador será 100%
                                 responsable de tu mascota, cubriendo todas
                                 sus necesidades. Cualquier inconveniente 

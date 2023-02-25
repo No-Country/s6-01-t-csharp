@@ -1,4 +1,6 @@
 ﻿import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import search from '../../src/assets/images/search.svg'
 
 function Buscador() {
     const [query, setQuery] = useState('');
@@ -10,7 +12,7 @@ function Buscador() {
 
         if (searchQuery.length > 0) {
             try {
-                const response = await fetch(`https://cohortes6.azurewebsites.net/api/Busqueda?query=${searchQuery}`);
+                const response = await fetch(`/api/Busqueda?query=${searchQuery}`);
                 const data = await response.json();
 
                 if (data.directions && data.walkers) {
@@ -18,6 +20,7 @@ function Buscador() {
                 } else {
                     setResults({ directions: [], walkers: [] });
                 }
+                console.log(data)
             } catch (error) {
                 console.error(error);
             }
@@ -27,27 +30,32 @@ function Buscador() {
     }
 
     return (
-        <div className="p-4 relative w-[100%]">
-            <input
-                type="text"
-                className="w-[100%] h-12 p-2 border-dark border-solid border-2 rounded placeholder:p-4 placeholder:text-md "
-                placeholder="localidad, barrio o ciudad"
-                value={query}
-                onChange={handleInputChange}
-            />   
-            {results.directions.length > 0 && (
-                <div className="mt-4">
-                    <h2 className="font-bold mb-2 text-lg text-gray-800">Directions:</h2>
-                    <ul className="bg-white">
-                        {results.directions.map((direction) => (
-                            <li key={direction} className="py-2 border-b border-gray-200">
-                                <a href="#" className="text-gray-900 hover:text-blue-500">{direction}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-        </div>
+        <>
+            <div className="relative w-[100%] border-dark border-solid border-2  rounded-lg">
+                <input
+                    type="text"
+                    className={`w-[100%] h-12 placeholder:text-md ${results.directions.length > 1 ? "rounded-t-lg" : "rounded-lg" } focus:outline-none px-5`}
+                    placeholder="Localidad, barrio o ciudad"
+                    value={query}
+                    onChange={handleInputChange}
+                />   
+                {results.directions.length > 0 && (
+                    <div className="rounded-lg">
+                        <ul className="bg-white rounded-b-lg px-5">
+                            {results.directions.map((direction, i) => (
+                                <div key={direction} className={`py-2 ${i === results.directions.length - 1 ? "border-b-none" : "border-b border-black"}`}>       <Link to={`/paseadores/${direction}`}className="text-gray-900 hover:text-blue-500">{direction}</Link> </div>  
+                            ))}
+                            
+                        </ul>
+                    </div>
+                )}
+            </div>
+            <Link 
+                to={`/paseadores/${query}`}
+                className='bg-dark max-h-12 w-12 rounded-md computer:w-[20%] computer:h-16 flex content-center items-center justify-center'>
+                    <img src={search} alt='iconSearch' className='w-[20px] h-[30px] m-auto w- computer:text-sm com'/>
+            </Link>
+        </>
     );
 }
 

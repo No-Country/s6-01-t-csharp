@@ -8,7 +8,7 @@ function Faqs(){
 
     const FAQS = [
         {
-            Q:'Cómo contacto a un paseador',
+            Q:'¿Cómo contacto a un paseador?',
             description:'Colocar en el buscador tu localidad y una vez hecho se desplegará como resultado los paseadores más cercanos en la zona'
         },
         {
@@ -16,12 +16,12 @@ function Faqs(){
             description:'El método de pago se hace en efectivo, cuando el paseador pase a recoger a el animal se debe efectuar el pago'
         },
         {
-            Q:'Cómo saber si el paseador es confiable',
-            description:'Cada uno de los paseadores tiene un perfil donde podrás observar las diferentes opiniones y evaluaciones que han realizado otros usuario.'
+            Q:'¿Cómo saber si el paseador es confiable?',
+            description:'Cada uno de los paseadores tiene un perfil donde podrás observar las diferentes opiniones y evaluaciones que han realizado otros usuarios.'
         },
         {
-            Q:'Cómo envío una consulta',
-            description:'Para hacer una consulta lo invitamos a hacer click en el link de "contacto" ubicado en la barra principal del menú'
+            Q:'¿Cómo envío una consulta?',
+            description:'Para hacer una consulta lo invitamos a hacer click en el link de "Contacto" ubicado en la barra principal del menú'
         }
         ,{
             Q:'Hacer una review',

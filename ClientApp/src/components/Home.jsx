@@ -26,9 +26,7 @@ const Home = () => {
                 </div>
                 <div className='flex flex-col justify-center gap-5 items-center w-full md:w-[70%] mx-auto font-medium'>
                     <h2 className='text-2xl text-white font-medium computer:text-6xl computer:font-semibold'>Encuentra a tu paseador </h2>
-                    <div className='flex justify-end gap-1 w-[90%]'>
-                        <!-- <input type='text' placeholder='localidad, barrio o cuidad' className='w-[100%] h-12 p-2 border-dark border-solid border-2 rounded placeholder:p-4 placeholder:text-sm computer:w-[80vw] computer:h-16 computer:placeholder:text-lg' />-->
-
+                    <div className='flex justify-end gap-1 w-[90%]'>                      
                         <Autocomplete></Autocomplete>
                         <Link 
                         to={`/paseadores/${localidad.trim().toLowerCase()}`}

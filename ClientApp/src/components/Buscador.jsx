@@ -30,7 +30,7 @@ function Buscador() {
         <div className="p-4 relative w-[100%]">
             <input
                 type="text"
-                className="border-2 w-full border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none focus:border-blue-500"
+                className="w-[100%] h-12 p-2 border-dark border-solid border-2 rounded placeholder:p-4 placeholder:text-md "
                 placeholder="localidad, barrio o ciudad"
                 value={query}
                 onChange={handleInputChange}
@@ -38,7 +38,7 @@ function Buscador() {
             {results.directions.length > 0 && (
                 <div className="mt-4">
                     <h2 className="font-bold mb-2 text-lg text-gray-800">Directions:</h2>
-                    <ul className="list-unstyled">
+                    <ul className="bg-white">
                         {results.directions.map((direction) => (
                             <li key={direction} className="py-2 border-b border-gray-200">
                                 <a href="#" className="text-gray-900 hover:text-blue-500">{direction}</a>

@@ -1,5 +1,5 @@
 
-import background from '../../src/assets/images/fondo.svg'
+import background from '../../src/assets/images/fondo.png'
 import puppy from '../../src/assets/images/Vectorpuppy.svg'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'

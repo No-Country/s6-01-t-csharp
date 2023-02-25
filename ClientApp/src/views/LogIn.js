@@ -13,39 +13,38 @@ function LogIn(){
 
 
 
-    // const [watch, setWatch] = useState(true)
-    // const [noWatch, setNoWatch] = useState(true)
-    // const [clas, setClas] = useState('flex justify-end -my-6 mx-3 cursor-pointer absolute invisible')
-    // const [password, setPassword] = useState("password")
+    const [watch, setWatch] = useState(true)
+    const [noWatch, setNoWatch] = useState(true)
+    const [clas, setClas] = useState('flex justify-end -my-6 mx-3 cursor-pointer absolute invisible')
+    const [password, setPassword] = useState("password")
 
-    // function visible(){
-    //     if(watch){
-    //         setClas('flex justify-end -my-6 mx-3 cursor-pointer visible')
-    //         setWatch(false)
-    //         setPassword("text")
-    //     }else{
-    //         setWatch(true)
-    //         setPassword("password")
-    //     }
-    // }
+    function visible(){
+        if(watch){
+            setClas('flex justify-end -my-6 mx-3 cursor-pointer visible')
+            setWatch(false)
+            setPassword("text")
+        }else{
+            setWatch(true)
+            setPassword("password")
+        }
+    }
 
-    // function noVisible(){
-    //     if(noWatch){
-    //         setWatch(true)
-    //         setClas('flex justify-end -my-6 mx-3 cursor-pointer absolute invisible')
-    //         setPassword("password")
-    //     }else{
-    //         setWatch(false)
-    //         setPassword("text")
-    //     }
-    // }
+    function noVisible(){
+        if(noWatch){
+            setWatch(true)
+            setClas('flex justify-end -my-6 mx-3 cursor-pointer absolute invisible')
+            setPassword("password")
+        }else{
+            setWatch(false)
+            setPassword("text")
+        }
+    }
 
     return(
         <>
 
             <Nav />
-            <RequestWalker />
-            {/* <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
+            <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
 
                     <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-5/6 2xl:h-[900px]">
                         <div className=" h-[400px] md:h-full w-[100%] md:w-[48%] lg:w-[550px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
@@ -116,7 +115,7 @@ function LogIn(){
                     </div>
                     </div>
 
-            </div> */}
+            </div>
         </>
     )
 }

@@ -26,7 +26,7 @@ namespace s6_01.Controllers
                 return Ok(new List<string>());
             }
 
-            var directions = context.Paseadores.Where(p => p.Direccion.Contains(query)).Select(p => p.Direccion).ToList();
+            var directions = context.Paseadores.Where(p => p.Direccion.Contains(query)).Take(3).Select(p => p.Direccion).ToList();
             var walkers = context.Paseadores.Where(p => p.Direccion.Contains(query)).ToList();
 
             var result = new { Directions = directions, Walkers = walkers };

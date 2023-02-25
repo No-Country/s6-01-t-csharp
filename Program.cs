@@ -89,7 +89,13 @@ builder.Services.AddSingleton<IEmailBusiness, EmailBusiness>();
 builder.Services.AddScoped<IReviewBusiness, ReviewBusiness>();
 builder.Services.AddScoped(typeof(CreditCardPaymentService));
 builder.Services.AddScoped<IPagoBusiness, PagoBusiness>();
-
+builder.Services.AddCors(o =>
+{
+    o.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 app.UseStaticFiles();
 app.UseSwagger();

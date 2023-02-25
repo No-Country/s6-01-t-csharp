@@ -5,6 +5,7 @@ import Paseador3 from "../assets/images/paseador3.png";
 import { useState } from 'react'
 import { CardPaseador } from './CardPaseador';
 import Nav from './Nav';
+import Buscador from './Buscador';
 
 
 const styles = {
@@ -29,7 +30,7 @@ export const Paseadores = () => {
         <Nav />
         <div className='w-full  pt-[10vh]'>
             <section className={ styles.wrapper }>
-                <div className={ styles.buscador }>
+                {/* <div className={ styles.buscador }>
                     <input 
                         type='text' 
                         placeholder='localidad, barrio o cuidad' 
@@ -45,6 +46,10 @@ export const Paseadores = () => {
                             onClick={ onClick }
                             />
                     </button>
+                </div> */}
+                <div className='flex gap-1'>
+
+                    <Buscador />
                 </div>
 
                 <h3 className={ styles.titulo } >Resultados de busqueda</h3>

@@ -7,7 +7,7 @@ const style = {
     container: " w-90% md:w-1/2 h-[90%] px-4 mb-10",
     wrapper_img: "flex justify-center",
     wrapper_text: "flex justify-center flex-col justify-center",
-    imagen: "h-[90%] w-[100%]",
+    imagen: "h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px]",
     h2: "text-center md:text-left text-3xl md:text-5xl font-medium text-secondary mb-4",
     p: "text-lg my-4",
     btn_pregunta: "w-[100%] md:w-[430px] bg-primary h-[61px] w-60 rounded-lg text-textLight text-xl mt-10",

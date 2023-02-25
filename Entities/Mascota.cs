@@ -10,18 +10,19 @@ namespace s6_01.Entities
         [Required]
         [StringLength(25)]
         public string Nombre { get; set; } = string.Empty;
-        [Required]
+    //    [Required]
         [StringLength(20)]
         public string Raza { get; set; } = string.Empty;
-        [Required]
+     //   [Required]
         public float Peso { get; set; }
-        [Required]
+   //     [Required]
         public int Edad { get; set; }
-        [Required]
+   //     [Required]
         public bool Vacunas { get; set; }
         public string Notas { get; set; } = string.Empty;
 
         public string PropietarioId { get; set; }
+        public int PropietarioId2 { get; set; }
         public ApplicationUser Propietario { get; set; }
 
     }

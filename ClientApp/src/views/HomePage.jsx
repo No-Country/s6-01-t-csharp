@@ -14,11 +14,10 @@ const HomePage = () => {
 
 
     const getBgNav = () => {
-        if( window.location.pathname !== "/" || window.location.pathname === "/paseadores/") {
+        if( window.location.pathname !== "/" || 
+            window.location.pathname === "/paseadores/") {
             setBgNav(false);
-        } else {
-            setBgNav(true);
-        }
+        } 
     }
 
     useEffect(() => {

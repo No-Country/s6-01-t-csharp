@@ -1,6 +1,9 @@
 import start from "../assets/images/Star.png";
+import { useParams } from "react-router-dom";
 
 export const CardPaseador = ( { img, preferencias, nombre , texto}) => {
+
+  const {direccion} = useParams()
 
   const style = {
     card: "mx-auto w-[90%]  h-[130px] my-6 rounded-lg py-[10px] px-[12px] shadow-2xl bg-bgCard",

@@ -1,10 +1,9 @@
 
 import background from '../../src/assets/images/fondo.svg'
 import puppy from '../../src/assets/images/Vectorpuppy.svg'
-import search from '../../src/assets/images/search.svg'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-
+import Buscador from "./Buscador";
 
 const Home = () => {
 
@@ -25,15 +24,9 @@ const Home = () => {
                     <div className='border-b-2 border-b-white w-[70%] sm:w-[40%] 2xl:w-[30%]'/>
                 </div>
                 <div className='flex flex-col justify-center gap-5 items-center w-full md:w-[70%] mx-auto font-medium'>
-                    <h2 className='text-2xl text-white font-medium computer:text-6xl computer:font-semibold'>Encuentra a tu paseador </h2>
-                    <div className='flex justify-end gap-1 w-[90%]'>
-                        <input type='text' placeholder='localidad, barrio o cuidad' className='w-[100%] h-12 p-2 border-dark border-solid border-2 rounded placeholder:p-4 placeholder:text-sm computer:w-[80vw] computer:h-16 computer:placeholder:text-lg'/>
-                        <Link 
-                        to={`/paseadores/${localidad.trim().toLowerCase()}`}
-                        className='bg-dark w-12 rounded-md computer:w-[20%] computer:h-16 flex content-center items-center justify-center'>
-                            <img src={search} alt='iconSearch' className='w-[10px] h-[15px] m-auto w- computer:text-sm com'/>
-                        </Link>
-                        
+                    <h2 className='text-2xl text-white font-medium computer:text-6xl computer:font-semibold'>Encuentra a tu paseador</h2>
+                    <div className='flex justify-end gap-1 w-[90%] '>                      
+                        <Buscador />                        
                     </div>
                 </div>
             </div>

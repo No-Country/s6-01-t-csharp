@@ -46,15 +46,15 @@ function LogIn(){
             <Nav />
             <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
 
-                    <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-5/6 2xl:h-[900px]">
-                        <div className=" h-[400px] md:h-full w-[100%] md:w-[48%] lg:w-[550px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
+                    <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-[550px] 2xl:h-[700px]">
+                        <div className=" h-[400px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
                             <img src={dog} className="h-full w-full object-cover md:rounded-md" />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
                                 <p className="text-center text-white text-xl">¿Todavía no tienes una cuenta?</p>                           
                                 <a href="/Register" className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer">Registrarse</a>
                             </div>
                         </div>
-                        <div className="h-[500px] md:h-full w-[100%] md:w-[48%] lg:w-[550px] flex flex-col justify-center items-center gap-1 shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)] md:rounded-md">
+                        <div className="h-[500px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] flex flex-col justify-center items-center gap-1 shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)] md:rounded-md">
                             <h3 className="flex flex-col text-center font-semibold text-xl m-2">Iniciar Sesión</h3>
                             <Formik
                                 initialValues={{

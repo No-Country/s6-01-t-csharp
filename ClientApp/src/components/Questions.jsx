@@ -13,9 +13,9 @@ function Questions({title, description, active, setActive}){
                                 <p className='font-semibold'>{title}</p>                                          
                             </div>
                     </div>
-
                 <div className={(active === title ? ' h-[110px] md:h-[135px] mb-2 opacity-1' : " ") + ' bg-[#176C6D] rounded-b-lg flex overflow-hidden h-0 opacity-1 transition-all ease-in-out duration-[1s]'}  >
                     <div className=' text-white p-3 font-semibold text-xs md:text-sm flex justify-center items-center'>
+
                         <p>
                             {description}
                         </p> 

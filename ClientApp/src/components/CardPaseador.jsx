@@ -6,10 +6,10 @@ export const CardPaseador = ( { img, preferencias, nombre , texto}) => {
   const {direccion} = useParams()
 
   const style = {
-    card: "mx-auto w-[90%]  h-[130px] my-6 rounded-lg py-[10px] px-[12px] shadow-2xl bg-bgCard",
-    flex: "flex  gap-3",
-    img: "h-full ",
-    texto: "w-[80%] ",
+    card: "w-[100%]  h-[177px] my-6 rounded-lg p-[10px] md:p-[15px] shadow-2xl bg-bgCard",
+    flex: "flex  justify-center items-center gap-3",
+    img: "h-[100px] md:h-full rounded-lg",
+    texto: "w-[90%] ",
     start: "h-[.9rem]",
     wrapper_stars:"flex",
     preferencias: "text-[.75rem] text-[#176C6D]",
@@ -52,7 +52,7 @@ export const CardPaseador = ( { img, preferencias, nombre , texto}) => {
 
         <p className= { style.nombre }>{ nombre }</p>
 
-        <p className= { style.descripcion }> { texto }</p>
+        <p className= { style.descripcion }> { `${texto.split(" ").slice(0, 15).join(" ")}...` }</p>
       </div>
     </div>
 

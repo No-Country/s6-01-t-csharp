@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Nav from "./Nav"
 
 const styles = {
@@ -6,10 +7,12 @@ const styles = {
     form: "w-[90%] lg:w-1/2 min-h-full mx-auto flex flex-col mt-10 py-8 items-center rounded-lg shadow-2xl bg-bgCard",
     wrapper_text:"flex flex-col w-[80%] md:w-[50%] my-3",
     input:"h-8 px-2 rounded border-2 border-alterno focus:border-primary focus:outline-none",
-    bnt_pagar:"bg-primary  py-2 px-4 rounded-lg text-white text-xl hover:bg-secondary transition-all duration-300 ease-in-out",
+    bnt_pagar:"bg-primary  py-2 px-4 rounded-lg text-white text-center text-xl transition-all duration-300 ease-in-out",
     error:"text-red-600 text-sm",
     focus_error:"focus:border-red-600 focus:outline-none border-red-600",
     focus:"focus:border-primary focus:outline-none border-alterno",
+    hover:"hover:bg-secondary ",
+    bloqueado:"cursor-not-allowed hover:bg-opacity-60 ",
 }
 
 export const FormPago = () => {
@@ -20,7 +23,10 @@ export const FormPago = () => {
     const [errorCard, setErrorCard] = useState('');
     const [errorFecha, setErrorFecha] = useState("");
     const [errorCodigo, setErrorCodigo] = useState("");
-    // const [activaCard, setActivaCard] = useState(false);
+    const [activaCard, setActivaCard] = useState(false);
+    const [activarFecha, setActivarFecha] = useState(false);
+    const [activarCodigo, setActivarCodigo] = useState(false);
+    const [btnDisable, setBtnDisable] = useState(true);
 
 
     const inputCard = (e) => {
@@ -36,43 +42,78 @@ export const FormPago = () => {
 
     const validarNumberCard = (e) => {
         if (numberCard.trim().length < 19) {
+
             setErrorCard('El número de tarjeta debe tener 16 dígitos');
-            } else if (!/^(\d{4}\s)*\d{4}$/.test(numberCard)) {
-                setErrorCard('El número de tarjeta solo debe contener números');
-            } else if(!/^(?!0000)(?!.*(\d)\1{3})\d{4}(?:\s?\d{4}){3}$/.test(numberCard)){
-                setErrorCard("El número de tarjeta es incorrecto");
-            } else {
-                setErrorCard('');
-            }
+            setActivaCard(false);
+
+        } else if (!/^(\d{4}\s)*\d{4}$/.test(numberCard)) {
+
+            setErrorCard('El número de tarjeta solo debe contener números');
+            setActivaCard(false);
+
+        } else if (!/^(?!0000)(?!.*(\d)\1{3})\d{4}(?:\s?\d{4}){3}$/.test(numberCard)) {
+
+            setErrorCard("El número de tarjeta es incorrecto");
+            setActivaCard(false);
+
+        } else {
+
+            setErrorCard('');
+            setActivaCard(true);
+
+        }
     }
 
     const validarFechaCard = () => {
         if (fechaCard.trim().length !== 5) {
             setErrorFecha('La fecha debe tener 4 dígitos');
-            } 
-            else if (!/^[0-9\/]+$/.test(fechaCard)) {
-                setErrorFecha('La fecha solo debe contener números');
-            } else if (!/^(0[1-9]|1[0-2])\/(2[0-9]|30)$/.test(fechaCard)){
-                setErrorFecha("La fecha es incorrecta");
-            }
-            else {
+            setActivarFecha(false);
+        } else if (!/^[0-9\/]+$/.test(fechaCard)) {
+            setErrorFecha('La fecha solo debe contener números');
+            setActivarFecha(false);
+        } else if (!/^(0[1-9]|1[0-2])\/(2[0-9]|30)$/.test(fechaCard)){
+            setErrorFecha("La fecha es incorrecta");
+            setActivarFecha(false);
+        } else {
             setErrorFecha('');
-            }
+            setActivarFecha(true);
+        }
     }
 
     const validarCodigoCard = () => {
         if (codigo.trim().length !== 3) {
             setErrorCodigo('El código debe tener 3 dígitos');
-            } else if (!/^\d+$/.test(codigo)) {
+            setActivarCodigo(false);
+        } else if (!/^\d+$/.test(codigo)) {
             setErrorCodigo('El código solo debe contener números');
-            } else if (!/^[1-9][0-9]{2}$/.test(codigo)) {
-                setErrorCodigo('El código no es válido');
-            }else {
+            setActivarCodigo(false);
+        } else if (!/^[1-9][0-9]{2}$/.test(codigo)) {
+            setErrorCodigo('El código no es válido');
+            setActivarCodigo(false);
+        } else {
             setErrorCodigo('');
-            }
+            setActivarCodigo(true);
+        }
     }
 
-    
+    useEffect(() => {
+
+        const handleDOMLoaded = () => setBtnDisable(true)
+
+        if((activaCard === false) || (activarFecha === false) || (activarCodigo === false) ) {
+            window.addEventListener('DOMContentLoaded', handleDOMLoaded);
+            setBtnDisable(true);
+        } else {
+            window.removeEventListener('DOMContentLoaded', handleDOMLoaded)
+            setBtnDisable(false)
+        }
+        return () => window.removeEventListener('DOMContentLoaded', handleDOMLoaded);
+
+    }, [numberCard, fechaCard, codigo, activaCard, activarFecha, activarCodigo]);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    }
 
     return (<>
         <Nav/>
@@ -142,7 +183,9 @@ export const FormPago = () => {
                 </div>
 
                 <div className={`${styles.wrapper_text}`}>
-                    <button className={`${styles.bnt_pagar}`}>
+                    <button
+                        className={`${styles.bnt_pagar} ${btnDisable ? styles.bloqueado : styles.hover}`}
+                        disabled={ btnDisable }>
                         Pagar
                     </button>
                 </div>

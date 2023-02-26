@@ -7,6 +7,7 @@ import { useState} from 'react';
 import LoginGmail from '../components/LoginGmail';
 import LoginFacebook from '../components/LoginFacebook';
 import Nav from '../components/Nav';
+import RequestWalker from '../components/RequestWalker';
 
 function LogIn(){
 

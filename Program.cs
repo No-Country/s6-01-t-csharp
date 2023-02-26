@@ -89,6 +89,9 @@ builder.Services.AddSingleton<IEmailBusiness, EmailBusiness>();
 builder.Services.AddScoped<IReviewBusiness, ReviewBusiness>();
 builder.Services.AddScoped(typeof(CreditCardPaymentService));
 builder.Services.AddScoped<IPagoBusiness, PagoBusiness>();
+
+builder.Services.AddScoped(typeof(PaseoBusiness));
+
 builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(policy =>

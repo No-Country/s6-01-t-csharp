@@ -22,9 +22,8 @@ const enlaces = [0, 1, 2, 3 ,4 ];
 function Nav( { bgNav } ) {    
 
     const [bgTransparente, setBgTransparent ] = useState(true);
-    const [idEnlace, setIdEnlace] = useState(0);
-    const [scrollY, setScrollY] = useState(window.scrollY);
     const [screeWidth, setScreenWidth] = useState(window.innerWidth);
+    const [idEnlace, setIdEnlace] = useState(0);
     const [toggle, setToggle] = useState(false);
 
 
@@ -36,34 +35,30 @@ function Nav( { bgNav } ) {
     function toggleActive() {
         setToggle(!toggle);
     }
-    
 
-//Función que evalúa el scrollY de la pantalla para cambiar el Bg-Nav
-    useEffect(() => {
-        const addBgColor = () => {
 
-            setScrollY(window.scrollY)
-    
-            if(scrollY > 90 || screeWidth < 1024){
-                setBgTransparent(false);
-            }  else {
-                setBgTransparent(true);
-            }
+
+    const addBgColor = () => {
+        if(window.scrollY > 90 ){
+            setBgTransparent(false);
+        }  else {
+            setBgTransparent(true);
         }
-        window.addEventListener("scroll", addBgColor);
-        return () => window.removeEventListener("scroll", addBgColor);
-    }, [scrollY,screeWidth])
+    }
+    window.addEventListener("scroll", addBgColor);
+    
+
 
 
 //Función que evalúa el tamaño de la pantalla para cambiar el Bg-Nav
     useEffect(() => {
         const handleResize = () => {
             setScreenWidth(window.innerWidth);
-            (scrollY < 90 || screeWidth < 1024) && setBgTransparent(false);
+            (screeWidth < 1024) && setBgTransparent(false);
         }
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [screeWidth, scrollY]);
+    }, [screeWidth]);
 
 
     return (<>

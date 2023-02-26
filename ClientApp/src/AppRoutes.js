@@ -5,6 +5,7 @@ import HomePage from "./views/HomePage";
 import Servicios from "./components/Servicios";
 import { Paseadores } from "./components/Paseadores";
 import Register from "./views/Register";
+import { ProfilePaseadores } from "./components/ProfilePaseadores";
 
 
 const AppRoutes = [
@@ -27,6 +28,10 @@ const AppRoutes = [
     {
         path: '/paseadores/:direccion',
         element: <Paseadores />
-    }    
+    },
+    {
+        path: '/perfilPaseador/:id',
+        element: <ProfilePaseadores />
+    }        
 ];
 export default AppRoutes;

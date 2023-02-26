@@ -70,9 +70,9 @@ function Nav( { bgNav } ) {
         <nav className= { style.nav } >
             <div className= { `${ style.wrapper_nav } ${ (bgTransparente && bgNav)? style.bg_transparent : style.bg_active }` } >
 
-                <a  href="#" className="flex-shrink-0 pl-3 lg:pl-0">
+                <Link  to="/" className="flex-shrink-0 pl-3 lg:pl-0">
                     <img className="w-14" src={ Logo } alt="Logotipo The Walking Dog" />
-                </a>
+                </Link>
 
                 <div className="block pr-3 lg:pr-0 lg:hidden">
                     <button

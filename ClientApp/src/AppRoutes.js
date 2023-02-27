@@ -5,7 +5,9 @@ import HomePage from "./views/HomePage";
 import Servicios from "./components/Servicios";
 import { Paseadores } from "./components/Paseadores";
 import Register from "./views/Register";
+import { PagosContainer } from "./views/PagosContainer";
 import { ProfilePaseadores } from "./components/ProfilePaseadores";
+
 
 
 const AppRoutes = [
@@ -30,8 +32,12 @@ const AppRoutes = [
         element: <Paseadores />
     },
     {
+        path: '/pagos/',
+        element: <PagosContainer />
+    }    
+
         path: '/perfilPaseador/:id',
         element: <ProfilePaseadores />
-    }        
+    }
 ];
 export default AppRoutes;

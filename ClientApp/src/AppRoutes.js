@@ -32,10 +32,10 @@ const AppRoutes = [
         element: <Paseadores />
     },
     {
-        path: '/pagos/',
+        path: '/pagos',
         element: <PagosContainer />
-    }    
-
+    },
+    {
         path: '/perfilPaseador/:id',
         element: <ProfilePaseadores />
     }

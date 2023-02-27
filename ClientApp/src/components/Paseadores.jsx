@@ -54,10 +54,11 @@ export const Paseadores = () => {
                     {resultados && resultados.walkers.map((walker)=>(
                         <Link key={walker.id} to={`/perfilPaseador/${walker.id}`} className="cursor-pointer">
                          <CardPaseador 
-                            img={ walker.avatar } 
-                            preferencias={walker.preferencias[0]}
-                            nombre={`${walker.nombres} ${walker.apellidos}`}
-                            texto={walker.descripcion}
+                                img={walker.avatar}
+                                preferencias={walker.preferencias}
+                                nombre={`${walker.nombres} ${walker.apellidos}`}
+                                texto={walker.descripcion}
+                                rating={walker.estrellas}
                             />
                         </Link>
                     ))}

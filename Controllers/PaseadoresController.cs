@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using s6_01.Core.Mapper.Reviews;
+using s6_01.Core.Models.Dtos;
 using s6_01.DataAccess;
 using s6_01.Entities;
 
@@ -19,17 +21,17 @@ namespace s6_01.Controllers
         }
         // GET: api/<PaseadoresController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Paseador>>> Get()
+        public async Task<ActionResult<IEnumerable<PaseadorDto>>> Get()
         {
             var paseadores = await _context.Paseadores
                 .Include(a => a.Disponibilidad)
                 .ToListAsync();
-            return paseadores;
+            return Ok(paseadores.ToViewModel());
         }
 
         // GET api/<PaseadoresController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Paseador>> Get(int id)
+        public async Task<ActionResult<PaseadorDto>> Get(int id)
         {
             var paseador = await _context.Paseadores
                 .Include(a => a.Disponibilidad)
@@ -40,7 +42,7 @@ namespace s6_01.Controllers
                 return NotFound();
             }
 
-            return paseador;
+            return Ok(paseador.ToViewModel());
         }
 
         // POST api/<PaseadoresController>

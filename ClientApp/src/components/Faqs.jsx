@@ -33,24 +33,25 @@ function Faqs(){
 
     return(
         <>
-            <div id='faqs' className=" bg-[#541440] w-full h-full">
-                <div className=" bg-[#541440] w-full h-full py-52">
-                <div className='flex justify-between w-full'>
-                    <div className='flex flex-col justify-center gap-5'>
-                        <img src={re1} className='w-2/3 h-[20%] ' />
-                        <img src={re2} className='w-[56%] h-[20%]' />
-                        <img src={re1} className='w-2/3 h-[20%]' />
+            <div id='faqs' className=" bg-[#541440] w-full h-screen">
+                <div className=" bg-[#541440] w-full h-full flex items-center">
+                    <div className='flex items-center justify-between w-full'>
+                        <div className='flex flex-col justify-center gap-5'>
+                            <img src={re1} className='w-2/3 h-[20%] ' />
+                            <img src={re2} className='w-[56%] h-[20%]' />
+                            <img src={re1} className='w-2/3 h-[20%]' />
+                        </div>
+                        <div className='' >
+                            {FAQS.map((card, index) => (<Questions key={index} title={card.Q} description={card.description} active={active} setActive={setActive} />))}
+                        </div> 
+                        <div className='flex flex-col justify-center items-end gap-5'>
+                            <img src={re1} className='w-2/3 h-[20%] ' />
+                            <img src={re2} className='w-[56%] h-[20%]' />
+                            <img src={re1} className='w-2/3 h-[20%]' />
+                        </div>
                     </div>
-                    <div className='flex flex-col justify-center items-end gap-5'>
-                        <img src={re1} className='w-2/3 h-[20%] ' />
-                        <img src={re2} className='w-[56%] h-[20%]' />
-                        <img src={re1} className='w-2/3 h-[20%]' />
-                    </div>
-                </div>
 
-                <div className=' -mt-[12rem] ' >
-                    {FAQS.map((card, index) => (<Questions key={index} title={card.Q} description={card.description} active={active} setActive={setActive} />))}
-                </div>                
+               
                 </div>
             </div>
         </>

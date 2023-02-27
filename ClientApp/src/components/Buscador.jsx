@@ -38,7 +38,7 @@ function Buscador() {
             <div className="relative w-[100%] border-dark border-solid border-[3px]  rounded-lg">
                 <input
                     type="text"
-                    className={`w-[100%] h-12 placeholder:text-md ${results.directions.length > 1 ? "rounded-t-lg" : "rounded-lg" } focus:outline-none px-5`}
+                    className={`w-[100%] h-12 placeholder:text-md ${results.directions.length > 0 ? "rounded-t-lg" : "rounded-lg" } focus:outline-none px-5`}
                     placeholder="Localidad, barrio o ciudad"
                     value={query}
                     onChange={handleInputChange}

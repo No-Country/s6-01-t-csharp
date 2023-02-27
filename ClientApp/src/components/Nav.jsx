@@ -5,7 +5,7 @@ import { EnlacesNav } from "./EnlacesNav";
 
 const style = {
     nav: "h-[10vh] w-full fixed z-50",
-    wrapper_nav:" h-full mx-auto lg:px-10  flex flex-wrap items-center justify-between rounded-b-md lg:rounded-b-0  lg:justify-around w-full transition-all duration-300 ease-in-out ",
+    wrapper_nav:" h-full mx-auto lg:px-10  flex flex-wrap items-center justify-between lg:justify-around w-full transition-all duration-300 ease-in-out ",
     ul:"lg:w-[80%] lg:flex lg:justify-around lg:overflow-visible lg:flex-row lg:bg-transparent lg:px-0 lg:py-0",
     ulMobile:" w-full block  flex-col bg-alterno px-3 py-3 text-center",
     li:" h-full my-2 lg:my-0 py-1 hover:bg-primary lg:hover:bg-transparent hover:border-b-4 border-primary transition-all duration-200 ease-in- text-white ",

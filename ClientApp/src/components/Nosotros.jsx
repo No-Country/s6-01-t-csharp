@@ -1,5 +1,6 @@
 import mascota from "../assets/images/img_perro_nosotros.png";
 import fondo from "../assets/images/Rectangle 29.png";
+import { Link } from "react-router-dom";
 
 const style = {
     nosotros: "min-h-full w-full  relative pt-[5rem] pb-[5rem]",
@@ -31,7 +32,9 @@ function Nosotros() {
                         Nuestra empresa funciona como un medio, es decir, cualquier persona puede postularse como vendedor, sin embargo habrá una barra de calificaciones y reviews que permitiría ver la confianza del sujeto.
                         Estamos para brindarle a tu mascota lo mejor.
                     </p>
-                    <button className= { style.btn_pregunta }>¡Haz una pregunta!</button>
+                    <a href="#contacto">
+                        <button className= { style.btn_pregunta }>¡Haz una pregunta!</button>
+                    </a>
                 </div>
 
                 <div className="w-[100%] md:w-1/2 h-[90%] md:px-4 mb-10 flex justify-center"> 

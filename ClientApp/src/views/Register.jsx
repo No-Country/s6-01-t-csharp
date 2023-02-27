@@ -209,26 +209,17 @@ function Register(){
                                         <ErrorMessage name='confirmPassword' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.confirmPassword}</div>)} />
                                 </div>
                                 </div>
-<<<<<<< HEAD
-                                {/* <div className='mt-10 mb-10'>
-=======
                                 <div className='mt-10 mb-5'>
->>>>>>> 3c20d3dcb7d767bccf5d48361f05149ab6316dca
                                     <h4 className='my-3 font-semibold'>Tipo de usuario</h4>
                                     <fieldset className='flex flex-row gap-3' >
                                         <Field type='radio' name='typeOfUser' value='Cliente' id='typeOfUser' /><p>Cliente</p>
                                         <Field type='radio' name='typeOfUser' value='Paseador' id='typeOfUser2' /><p>Paseador</p>
                                     </fieldset> 
                                     <ErrorMessage name='typeOfUser' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.typeOfUser}</div>)} />
-<<<<<<< HEAD
-                                </div>  */}
-                                <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
-=======
                                 </div> 
                                 <div className='w-full flex justify-center'>
                                     <button className="mx-auto text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
                                 </div>
->>>>>>> 3c20d3dcb7d767bccf5d48361f05149ab6316dca
                                 </Form>
                                     )}                            
                             </Formik>

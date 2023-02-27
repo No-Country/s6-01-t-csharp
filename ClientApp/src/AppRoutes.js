@@ -5,7 +5,7 @@ import HomePage from "./views/HomePage";
 import Servicios from "./components/Servicios";
 import { Paseadores } from "./components/Paseadores";
 import Register from "./views/Register";
-import { FormPago } from "./components/FormPago";
+import { PagosContainer } from "./views/PagosContainer";
 
 
 const AppRoutes = [
@@ -31,7 +31,7 @@ const AppRoutes = [
     },
     {
         path: '/pagos/',
-        element: <FormPago />
+        element: <PagosContainer />
     }    
 ];
 export default AppRoutes;

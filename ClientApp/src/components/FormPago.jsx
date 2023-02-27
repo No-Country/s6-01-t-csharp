@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Nav from "./Nav"
+
 
 const styles = {
     wrapper:"w-full min-h-[100vh] pt-[10vh]",
-    form: "w-[90%] lg:w-1/2 min-h-full mx-auto flex flex-col mt-10 py-8 items-center rounded-lg shadow-2xl bg-bgCard",
+    form: "w-full  min-h-full mx-auto flex flex-col mt-10 py-8 items-center",
     wrapper_text:"flex flex-col w-[80%] md:w-[50%] my-3",
     input:"h-8 px-2 rounded border-2 border-alterno focus:border-primary focus:outline-none",
     bnt_pagar:"bg-primary  py-2 px-4 rounded-lg text-white text-center text-xl transition-all duration-300 ease-in-out",
@@ -15,7 +14,8 @@ const styles = {
     bloqueado:"cursor-not-allowed hover:bg-opacity-60 ",
 }
 
-export const FormPago = () => {
+
+export const FormPago = ( { handleClick,loadingPago } ) => {
 
     const [numberCard, setNumberCard] = useState("");
     const [fechaCard, setFechaCard] = useState("");
@@ -29,6 +29,7 @@ export const FormPago = () => {
     const [btnDisable, setBtnDisable] = useState(true);
 
 
+// Función que deja espacio por cada 4 dígitos en el input del número de tarjeta de pago
     const inputCard = (e) => {
         let valor = e.target.value.replace(/\s/g, '');
         valor = valor.replace(/(\d{4})/g, '$1 ');
@@ -40,6 +41,7 @@ export const FormPago = () => {
         setNumberCard(valor);
     }
 
+// Validación del número de tarjeta
     const validarNumberCard = (e) => {
         if (numberCard.trim().length < 19) {
 
@@ -60,10 +62,10 @@ export const FormPago = () => {
 
             setErrorCard('');
             setActivaCard(true);
-
         }
     }
 
+//Validación de la fecha de tarjeta
     const validarFechaCard = () => {
         if (fechaCard.trim().length !== 5) {
             setErrorFecha('La fecha debe tener 4 dígitos');
@@ -80,6 +82,7 @@ export const FormPago = () => {
         }
     }
 
+//Validación del código de tarjeta
     const validarCodigoCard = () => {
         if (codigo.trim().length !== 3) {
             setErrorCodigo('El código debe tener 3 dígitos');
@@ -96,6 +99,13 @@ export const FormPago = () => {
         }
     }
 
+
+    const handleSubmit = event => {
+        event.preventDefault();
+    }
+
+
+// Activando el botón de envío del formulario
     useEffect(() => {
 
         const handleDOMLoaded = () => setBtnDisable(true)
@@ -111,86 +121,85 @@ export const FormPago = () => {
 
     }, [numberCard, fechaCard, codigo, activaCard, activarFecha, activarCodigo]);
 
-    const handleSubmit = event => {
-        event.preventDefault();
-    }
+
 
     return (<>
-        <Nav/>
-        <section className={`${styles.wrapper}`}>
-            <form 
-                className={`${styles.form}`}
-                onSubmit={ (e) => e.preventDefault } 
-                action="">
-                <h5 className='text-2xl font-medium'>Realizar pago</h5>
-
-                <div className={`${styles.wrapper_text}`}>
-                    <p className="text-lg font-medium">Total: $30</p>
-                </div>
-                <div className={`${styles.wrapper_text}`}>
-                    <label className='mb-1' >Número de la tarjeta *</label>
-                    <input
-                        className={`${styles.input} ${errorCard === "" ? styles.focus : styles.focus_error }`}
-                        value={numberCard}
-                        onChange={ inputCard }
-                        onBlur={ validarNumberCard }
-                        name="nombre" 
-                        id="nombre" 
-                        type="text"
-                        autoComplete='off'
-                        placeholder="xxxx xxxx xxxx xxxx"
-                        maxLength={ 19 }
-                        />
-                    <span className={`${styles.error}`}>
-                        {errorCard !== "" ? errorCard : ""}
-                    </span>
-                </div>
-
-                <div className={`${styles.wrapper_text}`}>
-                    <label className='mb-1' >Fecha de vencimiento *</label>
-                    <input
-                        className={`${styles.input} ${errorFecha === "" ? styles.focus : styles.focus_error }`}
-                        value={fechaCard}
-                        onChange={(e) => setFechaCard(e.target.value)}
-                        onBlur={ validarFechaCard } 
-                        name="nombre" 
-                        id="nombre" 
-                        type="text"
-                        autoComplete='off'
-                        placeholder="05/28"
-                        maxLength={ 5 }/>
-                    <span className={`${styles.error}`}>
-                        {errorFecha !== "" ? errorFecha : ""}
-                    </span>
-                </div>
-
-                <div className={`${styles.wrapper_text}`}>
-                    <label className='mb-1' >Ultimos 3 dígitos *</label>
-                    <input
-                        className={`${styles.input} ${errorCodigo === "" ? styles.focus : styles.focus_error }`}
-                        value={codigo}
-                        onChange={(e) => setCodigo(e.target.value)}
-                        onBlur={ validarCodigoCard } 
-                        name="nombre" 
-                        id="nombre" 
-                        type="text"
-                        autoComplete='off'
-                        placeholder="785"
-                        maxLength={ 3 }/>
-                    <span className={`${styles.error}`}>
-                        {errorCodigo !== "" ? errorCodigo : " "}
-                    </span>
-                </div>
-
-                <div className={`${styles.wrapper_text}`}>
-                    <button
-                        className={`${styles.bnt_pagar} ${btnDisable ? styles.bloqueado : styles.hover}`}
-                        disabled={ btnDisable }>
-                        Pagar
-                    </button>
-                </div>
-            </form>
-        </section>
         
+        <form 
+            className={`${styles.form}`}
+            onSubmit={ (e) => e.preventDefault } 
+            action="">
+            <h5 className='text-2xl font-medium'>Realizar pago</h5>
+
+            <div className={`${styles.wrapper_text}`}>
+                <p className="text-lg font-medium">Total: $30</p>
+            </div>
+
+            <div className={`${styles.wrapper_text}`}>
+                <label className='mb-1' >Número de la tarjeta *</label>
+                <input
+                    className={`${styles.input} ${errorCard === "" ? styles.focus : styles.focus_error }`}
+                    value={numberCard}
+                    onChange={ inputCard }
+                    onBlur={ validarNumberCard }
+                    name="nombre" 
+                    id="nombre" 
+                    type="text"
+                    autoComplete='off'
+                    placeholder="xxxx xxxx xxxx xxxx"
+                    maxLength={ 19 }
+                    />
+                <span className={`${styles.error}`}>
+                    {errorCard !== "" ? errorCard : ""}
+                </span>
+            </div>
+
+            <div className={`${styles.wrapper_text}`}>
+                <label className='mb-1' >Fecha de vencimiento *</label>
+                <input
+                    className={`${styles.input} ${errorFecha === "" ? styles.focus : styles.focus_error }`}
+                    value={fechaCard}
+                    onChange={(e) => setFechaCard(e.target.value)}
+                    onBlur={ validarFechaCard } 
+                    name="nombre" 
+                    id="nombre" 
+                    type="text"
+                    autoComplete='off'
+                    placeholder="05/28"
+                    maxLength={ 5 }/>
+                <span className={`${styles.error}`}>
+                    {errorFecha !== "" ? errorFecha : ""}
+                </span>
+            </div>
+
+            <div className={`${styles.wrapper_text}`}>
+                <label className='mb-1' >Ultimos 3 dígitos *</label>
+                <input
+                    className={`${styles.input} ${errorCodigo === "" ? styles.focus : styles.focus_error }`}
+                    value={codigo}
+                    onChange={(e) => setCodigo(e.target.value)}
+                    onBlur={ validarCodigoCard } 
+                    name="nombre" 
+                    id="nombre" 
+                    type="text"
+                    autoComplete='off'
+                    placeholder="785"
+                    maxLength={ 3 }/>
+                <span className={`${styles.error}`}>
+                    {errorCodigo !== "" ? errorCodigo : " "}
+                </span>
+            </div>
+
+            <div className={`${styles.wrapper_text}`}>
+                <button
+                    className={`${styles.bnt_pagar} ${btnDisable ? styles.bloqueado : styles.hover}`}
+                    disabled={ btnDisable }
+                    onClick={ () => { handleClick(); loadingPago() }  }>
+                    Pagar
+                </button>
+            </div>
+
+        </form>
+
     </>)
 }

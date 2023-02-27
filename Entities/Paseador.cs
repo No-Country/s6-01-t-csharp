@@ -16,6 +16,8 @@ namespace s6_01.Entities
         [Required]
         public string Direccion { get; set; }
         [Required]
+        public string ZonaActiva { get; set; }
+        [Required]
         public int Telefono { get; set; }
         [Required]
         public decimal CobroPorHora { get; set; }

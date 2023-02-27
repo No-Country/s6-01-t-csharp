@@ -40,6 +40,12 @@ module.exports = {
         '6': '1.5rem;',
         '70vw': '70vw',
       },
+      backgroundImage: {
+        'back': "url('../src/assets/images/Rectangle-34.png')"
+      },
+      backgroundPosition: {
+        leften: 'center 30% ',
+      }
       
     },
 

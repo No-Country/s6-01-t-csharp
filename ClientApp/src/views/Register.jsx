@@ -76,14 +76,12 @@ function Register(){
         const url = '/api/Auth/Register'
 
         function handleRegistre(){
-            
             fetch(url,{
-                method: 'POST',
-                body: JSON.stringify(user)
+                method: 'post',
+                body: user
             })
-            .then(res => res.json())
+            .then(res => (res.json()))
             .then(data => console.log(data))
-            .catch(err => console.log(err))
         }
 
         // async function handleRegistre(){
@@ -124,10 +122,11 @@ function Register(){
     return(
         <>
             <Nav/>
-            <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
-                <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-[550px] 2xl:h-[800px]" >
-                        <div className="h-[400px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
-                            <img src={dog2} className=" h-full w-full object-cover md:rounded-md" />
+            <div className="container w-11/12 h-full flex justify-center m-auto py-20">
+                <div className=" bg-neutral-50 mx-auto w-[70%] h-[40rem] rounded-md shadow-slate-600 shadow-lg" >
+                    <div className="flex flex-row h-full rounded-md shadow-slate-500">
+                         <div className="w-2/4 h-full rounded-md shadow-slate-600 shadow-lg overflow-hidden"> 
+                            <img src={dog2} className=" w-full h-full object-cover " />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
                                 <p className="text-center text-white text-xl">¿Ya tenes una cuenta?</p>                           
                                 <Link to="/login" className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer" >Iniciar Sesión</Link> 
@@ -137,8 +136,8 @@ function Register(){
                                 </div>                    
                             </div>
                         </div>
-                        <div className="h-[600px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] flex flex-col justify-center items-center gap-1 shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)] md:rounded-md">
-                            <h3 className="flex flex-col text-center font-semibold text-xl my-6 ">Registrarse</h3>
+                        <div className="p-3 mx-auto w-2/4 h-full flex flex-col justify-center gap-1">
+                            <h3 className="flex flex-col text-center font-semibold text-xl -mt-4 mb-6 ">Registrarse</h3>
                             <Formik
                                 initialValues={{
                                     password:'',
@@ -149,20 +148,20 @@ function Register(){
                                 validate={(valores)=>{
                                     let errores = {}
 
-                                    // if(!valores.username){
-                                    //     errores.username = "Ingrese un nombre"
-                                    // }
+                                    if(!valores.username){
+                                        errores.username = "Ingrese un nombre"
+                                    }
 
-                                    // if(!valores.email){
-                                    //     errores.email = "Ingrese un correo"
-                                    // }else if(! /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
-                                    //     errores.email = 'Correo no valido'
-                                    // }
+                                    if(!valores.email){
+                                        errores.email = "Ingrese un correo"
+                                    }else if(! /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
+                                        errores.email = 'Correo no valido'
+                                    }
                                     
 
-                                    // if(valores.password !== valores.confirmPassword){
-                                    //     errores.confirmPassword = "Las contraseñas no coinciden"
-                                    // }
+                                    if(valores.password !== valores.confirmPassword){
+                                        errores.confirmPassword = "Las contraseñas no coinciden"
+                                    }
 
                                     // if(!valores.typeOfUser){
                                     //     errores.typeOfUser = "Elija el tipo de usuario"
@@ -174,14 +173,14 @@ function Register(){
                                 onSubmit={(valores, {resetForm}) => {                                   
 
                                     resetForm()
-                                    setUser(valores)
-                                    // console.log(user)
                                     handleRegistre()
+                                    setUser(valores)
+                                    console.log(user)
                                     console.log('formulario enviado')
                                 }}
                                 >
                                 {({errors})=>(
-                                        <Form className='w-[80%] h-full'>
+                                        <Form>
                                 <div className=" w-full">
                                         <p className="my-3 font-semibold">Nombre de usuario *</p> 
                                         <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='AlbertoF' id='username' name='username' type='text' />
@@ -209,20 +208,19 @@ function Register(){
                                         <ErrorMessage name='confirmPassword' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.confirmPassword}</div>)} />
                                 </div>
                                 </div>
-                                <div className='mt-10 mb-5'>
+                                {/* <div className='mt-10 mb-10'>
                                     <h4 className='my-3 font-semibold'>Tipo de usuario</h4>
                                     <fieldset className='flex flex-row gap-3' >
                                         <Field type='radio' name='typeOfUser' value='Cliente' id='typeOfUser' /><p>Cliente</p>
                                         <Field type='radio' name='typeOfUser' value='Paseador' id='typeOfUser2' /><p>Paseador</p>
                                     </fieldset> 
                                     <ErrorMessage name='typeOfUser' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.typeOfUser}</div>)} />
-                                </div> 
-                                <div className='w-full flex justify-center'>
-                                    <button className="mx-auto text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
-                                </div>
+                                </div>  */}
+                                <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
                                 </Form>
                                     )}                            
                             </Formik>
+                    </div>
                     </div>
                 </div>
             </div>

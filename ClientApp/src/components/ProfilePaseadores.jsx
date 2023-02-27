@@ -69,6 +69,7 @@ export const ProfilePaseadores = () => {
                         {paseador.descripcion}
                     </p>
                 </div>
+                <h2 className="text-xl font-bold mb-4">Disponibilidad</h2>
                 {/*<div className="">*/}
                 {/*    <h2 className="text-xl font-bold mb-4">Disponibilidad</h2>*/}
                 {/*    <table className="w-full border-collapse">*/}

@@ -232,3 +232,4 @@ _Pvt_Extensions
 .fake/
 /Migrations
 
+/Properties/ServiceDependencies/CohorteS6 - Web Deploy/profile.arm.json

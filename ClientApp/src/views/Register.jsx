@@ -73,18 +73,44 @@ function Register(){
     
 
    
-        const url = '/api/Auth/Register'
 
-        function handleRegistre(){
+        const handleRegistre = async (valores) => {
+            const url = '/api/Auth/Register'
+      
+            try {
+              const res = await fetch(url, {
+                method:'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                                "email": valores.email,
+                                "username": valores.username,
+                                "password": valores.password,
+                                "confirmPassword": valores.confirmPassword
+                            })
+              })
+              const result = await res
+              console.log(result.json())
+            } catch (error) {
+              console.log(error)
+            }
+          }
+        // function handleRegistre(valores){
             
-            fetch(url,{
-                method: 'POST',
-                body: JSON.stringify(user)
-            })
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
-        }
+        //     fetch(url,{
+        //         method: 'POST',
+        //         body:{
+        //             "email": valores.email,
+        //             "username": valores.username,
+        //             "password": valores.password,
+        //             "confirmPassword": valores.confirmPassword
+        //         }
+        //     })
+        //     .then(res => res)
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err))
+        // }
 
         // async function handleRegistre(){
 
@@ -149,20 +175,20 @@ function Register(){
                                 validate={(valores)=>{
                                     let errores = {}
 
-                                    // if(!valores.username){
-                                    //     errores.username = "Ingrese un nombre"
-                                    // }
+                                    if(!valores.username){
+                                        errores.username = "Ingrese un nombre"
+                                    }
 
-                                    // if(!valores.email){
-                                    //     errores.email = "Ingrese un correo"
-                                    // }else if(! /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
-                                    //     errores.email = 'Correo no valido'
-                                    // }
+                                    if(!valores.email){
+                                        errores.email = "Ingrese un correo"
+                                    }else if(! /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)){
+                                        errores.email = 'Correo no valido'
+                                    }
                                     
 
-                                    // if(valores.password !== valores.confirmPassword){
-                                    //     errores.confirmPassword = "Las contraseñas no coinciden"
-                                    // }
+                                    if(valores.password !== valores.confirmPassword){
+                                        errores.confirmPassword = "Las contraseñas no coinciden"
+                                    }
 
                                     // if(!valores.typeOfUser){
                                     //     errores.typeOfUser = "Elija el tipo de usuario"
@@ -171,12 +197,13 @@ function Register(){
 
                                     return errores
                                 }}
-                                onSubmit={(valores, {resetForm}) => {                                   
+                                onSubmit={(valores) => {                                   
 
+                                    
+                                    // setUser(valores)
+                                    // // console.log(user)
+                                    handleRegistre(valores)
                                     resetForm()
-                                    setUser(valores)
-                                    // console.log(user)
-                                    handleRegistre()
                                     console.log('formulario enviado')
                                 }}
                                 >

@@ -27,7 +27,7 @@ namespace s6_01.DataAccess.Seeds
                         "Labrador Retriever",
                         "Pastor Alemán"
                     },
-                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}"
+                    Avatar = $"https://i.pravatar.cc/150?img=68"
                 },
                 new Paseador
                 {
@@ -46,7 +46,7 @@ namespace s6_01.DataAccess.Seeds
                         "Bichón Frisé",
                         "Shih Tzu"
                     },
-                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}"
+                    Avatar = $"https://i.pravatar.cc/150?img=49"
                 },
                 new Paseador
                 {
@@ -58,7 +58,7 @@ namespace s6_01.DataAccess.Seeds
                     Telefono = 311234567,
                     CobroPorHora = 25000.00m,
                     ZonaActiva ="Microcentro",
-                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}",
+                    Avatar = $"https://i.pravatar.cc/150?img=60",
                     Preferencias = new List<string> { "Perros grandes", "Caminatas largas", "Juegos de pelota" },
                     Descripcion = "Soy un amante de los perros y me encanta pasearlos por el parque. Me gusta jugar con ellos y asegurarme de que estén bien hidratados durante la caminata."
                 },
@@ -72,7 +72,7 @@ namespace s6_01.DataAccess.Seeds
                     Telefono = 555134567,
                     CobroPorHora = 150.0M,
                     ZonaActiva = "San Miguel de Tucumán",
-                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}",
+                    Avatar = $"https://i.pravatar.cc/150?img=59",
                     Preferencias = new List<string>
                     {
                         "Caminar por el parque",
@@ -91,7 +91,7 @@ namespace s6_01.DataAccess.Seeds
                     Telefono = 316876543,
                     CobroPorHora = 20000.00m,
                     ZonaActiva = "San Juan", 
-                    Avatar = $"https://i.pravatar.cc/150?u={Guid.NewGuid().ToString().Replace("-", "")}",
+                    Avatar = $"https://i.pravatar.cc/150?img=48",
                     Preferencias = new List<string> { "Perros pequeños", "Caminatas cortas", "Juegos de búsqueda" },
                     Descripcion = "Soy una paseadora de perros con experiencia de 2 años, amo a los perros y me encanta caminar con ellos."
                 }

@@ -92,14 +92,14 @@ builder.Services.AddScoped<IPagoBusiness, PagoBusiness>();
 
 builder.Services.AddScoped(typeof(PaseoBusiness));
 
-builder.Services.AddCors(o =>
-{
-    o.AddDefaultPolicy(policy =>
-    {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-    });
-});
+builder.Services.AddCors();
 var app = builder.Build();
+app.UseCors(builder =>
+     builder.WithOrigins("https://localhost:44460")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials());
+
 app.UseStaticFiles();
 app.UseSwagger();
 app.UseSwaggerUI();

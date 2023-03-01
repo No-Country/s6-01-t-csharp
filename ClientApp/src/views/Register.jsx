@@ -12,6 +12,8 @@ import noEye1 from '../assets/images/invisible.png';
 import {useEffect, useState} from 'react';
 import Nav from '../components/Nav';
 import { parseJsonSourceFileConfigFileContent } from 'typescript';
+import Swal from 'sweetalert2'
+import * as yup from 'yup';
 
 
 function Register(){
@@ -24,7 +26,7 @@ function Register(){
     const [clas1, setClas1] = useState('flex justify-end -my-6 mx-3 cursor-pointer absolute invisible')
     const [password, setPassword] = useState("password")
     const [password1, setPassword1] = useState("password")
-    const [user, setUser] = useState({})
+    const Swal = require('sweetalert2')
 
     function visible(){
         if(watch){
@@ -80,6 +82,7 @@ function Register(){
             try {
               const res = await fetch(url, {
                 method:'POST',
+                mode: 'cors',
                 headers: {
                   'Content-Type': 'application/json'
                 },
@@ -91,11 +94,31 @@ function Register(){
                             })
               })
               const result = await res
-              console.log(result.json())
+              if(result.status === 200){
+                Swal.fire(
+                    'Ya estas registrad@!',
+                    'Ve a iniciar Sesión',
+                    'success'
+                  )
+              }else{
+                Swal.fire(
+                    'Hubo un error!',
+                    'Intentalo de nuevo',
+                    'warning'
+                  )
+              }
             } catch (error) {
-              console.log(error)
+                Swal.fire(
+                    'Hubo un error!',
+                    'Intentalo de nuevo',
+                    'error'
+                  )
             }
           }
+
+         
+
+
         // function handleRegistre(valores){
             
         //     fetch(url,{
@@ -112,41 +135,6 @@ function Register(){
         //     .catch(err => console.log(err))
         // }
 
-        // async function handleRegistre(){
-
-        //     if(user){
-        //         const response = await fetch(url, {
-        //             method: 'POST',
-        //             headers: {
-        //               'Accept': 'application/json',
-        //               'Content-Type': 'application/json'
-        //             },
-        //             body: JSON.stringify(user)
-        //           });
-        //           const content = await response.json();
-              
-        //             console.log(content);
-        //     }else{
-        //         setUser([])
-        //     }
-            
-        // }
-       
-        // useEffect(()=>{
-        //     async () => {
-        //         const response = await fetch(url, {
-        //           method: 'POST',
-        //           headers: {
-        //             'Accept': 'application/json',
-        //             'Content-Type': 'application/json'
-        //           },
-        //           body: user
-        //         });
-        //         const content = await response.json();
-              
-        //         console.log(content);
-        //       }
-        // },[])
     return(
         <>
             <Nav/>
@@ -176,6 +164,7 @@ function Register(){
                                 validate={(valores)=>{
                                     let errores = {}
 
+
                                     if(!valores.username){
                                         errores.username = "Ingrese un nombre"
                                     }
@@ -186,7 +175,13 @@ function Register(){
                                         errores.email = 'Correo no valido'
                                     }
                                     
-
+                                    if(!valores.password){
+                                        errores.password = 'Ingrese una contraseña'
+                                    }else if(valores.password.length < 6){
+                                        errores.password = 'La contraseña al menos debe tener 6 carácteres, una mayúscula, una minúscula, un numero y un carácter especial'
+                                    }
+                                  
+                            
                                     if(valores.password !== valores.confirmPassword){
                                         errores.confirmPassword = "Las contraseñas no coinciden"
                                     }
@@ -198,17 +193,11 @@ function Register(){
 
                                     return errores
                                 }}
-                                onSubmit={(valores) => {                                   
+                                onSubmit={(valores, {resetForm}) => {                                   
 
-                                    
-                                    // setUser(valores)
-                                    // // console.log(user)
-                                    handleRegistre(valores)
                                     resetForm()
-                                    setUser(valores)
-                                    // console.log(user)
-                                    handleRegistre()
-                                    console.log('formulario enviado')
+                                    handleRegistre(valores)
+                                    
                                 }}
                                 >
                                 {({errors})=>(
@@ -229,6 +218,7 @@ function Register(){
                                             <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='************' id='password' name='password' type={password} />
                                             {watch && <div className='flex justify-end -my-6 mx-3 cursor-pointer'><img src={noEye} className="w-3" onClick={()=>{visible()}}  /></div> }
                                         <div className={clas}><img src={eye} className="w-3" onClick={()=>{noVisible()}} /></div>
+                                        <ErrorMessage name='password' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.password}</div>)} />
                                 </div>
                                 </div>
                                 <div className=" w-full mb-8 mt-10">
@@ -248,7 +238,7 @@ function Register(){
                                     </fieldset> 
                                     <ErrorMessage name='typeOfUser' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.typeOfUser}</div>)} />
                                 </div>  */}
-                                <button className="flex justify-center mx-auto mt-3 text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
+                                <button className="flex justify-center mx-auto mt-[4rem] text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
                                 </Form>
                                     )}                            
                             </Formik>

@@ -26,14 +26,14 @@ namespace s6_01.Controllers
                 // Return an empty list if query is null or has less than 3 characters
                 return Ok(new List<string>());
             }
-            var walkers = context.Paseadores.Where(p => p.ZonaActiva.Contains(query)).ToList().ToViewModel();
-            var directions = walkers.Select(a=>a.ZonaActiva).Take(3).ToList();
+            var walkers = context.Paseadores.Where(p => p.ZonaActiva.Contains(query) || p.Direccion.Contains(query)).ToList().ToViewModel();
+            var directions = walkers.Select(a => a.ZonaActiva).Take(3).ToList();
             var result = new { Directions = directions, Walkers = walkers };
             return Ok(result);
         }
     }
 
-  
+
 }
 
 

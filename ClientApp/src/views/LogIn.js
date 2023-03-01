@@ -42,7 +42,7 @@ function LogIn(){
         }
     }
 
-    const url = 'https://thewalkingdog.bsite.net/api/Auth/Login'
+    const url = '/api/Auth/Login'
 
     function handleLogin(valores){
         fetch(url,{
@@ -57,7 +57,10 @@ function LogIn(){
             })           
         })
         .then(res => res.json())
-        .then(data => console.log(data, data.token))
+            .then(data => {
+                localStorage.setItem('jwtToken', data.token);
+                console.log(data, data.token);
+            })
         .catch(err => console.log(err))
     }
 

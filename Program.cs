@@ -83,29 +83,27 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
-
 builder.Services.AddSingleton<IEmailService, EmailService>();
 builder.Services.AddSingleton<IEmailBusiness, EmailBusiness>();
 builder.Services.AddScoped<IReviewBusiness, ReviewBusiness>();
 builder.Services.AddScoped(typeof(CreditCardPaymentService));
 builder.Services.AddScoped<IPagoBusiness, PagoBusiness>();
-
 builder.Services.AddScoped(typeof(PaseoBusiness));
-
-builder.Services.AddCors();
+builder.Services.AddCors(o =>
+{
+    o.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 var app = builder.Build();
-app.UseCors(builder =>
-     builder.WithOrigins("https://localhost:44460")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials());
-
-app.UseStaticFiles();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-app.MapFallbackToFile("index.html"); 
+app.MapFallbackToFile("index.html");
 app.Run();

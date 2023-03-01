@@ -11,7 +11,6 @@ import eye1 from '../assets/images/visibilidad.png';
 import noEye1 from '../assets/images/invisible.png';
 import {useEffect, useState} from 'react';
 import Nav from '../components/Nav';
-import { parseJsonSourceFileConfigFileContent } from 'typescript';
 import Swal from 'sweetalert2'
 import * as yup from 'yup';
 
@@ -77,7 +76,7 @@ function Register(){
    
 
         const handleRegistre = async (valores) => {
-            const url = 'https://thewalkingdog.bsite.net/api/Auth/Register'
+            const url = '/api/Auth/Register'
       
             try {
               const res = await fetch(url, {

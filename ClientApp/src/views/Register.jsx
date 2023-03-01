@@ -9,8 +9,11 @@ import gmail from '../assets/images/gmail.png';
 import face from '../assets/images/facebook.png';
 import eye1 from '../assets/images/visibilidad.png';
 import noEye1 from '../assets/images/invisible.png';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Nav from '../components/Nav';
+import { parseJsonSourceFileConfigFileContent } from 'typescript';
+import Swal from 'sweetalert2'
+import * as yup from 'yup';
 
 
 function Register(){
@@ -23,6 +26,7 @@ function Register(){
     const [clas1, setClas1] = useState('flex justify-end -my-6 mx-3 cursor-pointer absolute invisible')
     const [password, setPassword] = useState("password")
     const [password1, setPassword1] = useState("password")
+    const Swal = require('sweetalert2')
 
     function visible(){
         if(watch){
@@ -68,14 +72,77 @@ function Register(){
             setPassword1("text")
         }
     }
+    
+
+   
+
+        const handleRegistre = async (valores) => {
+            const url = 'https://thewalkingdog.bsite.net/api/Auth/Register'
+      
+            try {
+              const res = await fetch(url, {
+                method:'POST',
+                mode: 'cors',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                                "email": valores.email,
+                                "username": valores.username,
+                                "password": valores.password,
+                                "confirmPassword": valores.confirmPassword
+                            })
+              })
+              const result = await res
+              if(result.status === 200){
+                Swal.fire(
+                    'Ya estas registrad@!',
+                    'Ve a iniciar Sesión',
+                    'success'
+                  )
+              }else{
+                Swal.fire(
+                    'Hubo un error!',
+                    'Intentalo de nuevo',
+                    'warning'
+                  )
+              }
+            } catch (error) {
+                Swal.fire(
+                    'Hubo un error!',
+                    'Intentalo de nuevo',
+                    'error'
+                  )
+            }
+          }
+
+         
+
+
+        // function handleRegistre(valores){
+            
+        //     fetch(url,{
+        //         method: 'POST',
+        //         body:{
+        //             "email": valores.email,
+        //             "username": valores.username,
+        //             "password": valores.password,
+        //             "confirmPassword": valores.confirmPassword
+        //         }
+        //     })
+        //     .then(res => res)
+        //     .then(data => console.log(data))
+        //     .catch(err => console.log(err))
+        // }
 
     return(
         <>
             <Nav/>
-            <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
-                <div className="flex flex-col md:flex-row justify-center w-[100%] md:h-[550px] 2xl:h-[800px]" >
-                        <div className="h-[400px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] md:rounded-md shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)]"> 
-                            <img src={dog2} className=" h-full w-full object-cover md:rounded-md" />
+            <div className="container w-11/12 h-full flex justify-center m-auto py-20">
+                <div className=" bg-neutral-50 mx-auto w-[70%] h-[40rem] rounded-md shadow-slate-600 shadow-lg" >
+                    <div className="flex flex-row h-full rounded-md shadow-slate-500">
+                         <div className="w-2/4 h-full rounded-md shadow-slate-600 shadow-lg overflow-hidden"> 
+                            <img src={dog2} className=" w-full h-full object-cover " />
                             <div className='flex flex-col justify-center -my-52 gap-4'>
                                 <p className="text-center text-white text-xl">¿Ya tenes una cuenta?</p>                           
                                 <Link to="/login" className="flex justify-center self-center p-2 text-white text-sm bg-fuchsia-900 hover:bg-fuchsia-800 duration-150 rounded-md w-32 h-9 cursor-pointer" >Iniciar Sesión</Link> 
@@ -85,21 +152,21 @@ function Register(){
                                 </div>                    
                             </div>
                         </div>
-                        <div className="h-[600px] md:h-full w-[100%] md:w-[400px] lg:w-[500px] flex flex-col justify-center items-center gap-1 shadow-[5px_5px_10px_10px_rgba(0,0,0,0.25)] md:rounded-md">
-                            <h3 className="flex flex-col text-center font-semibold text-xl my-6 ">Registrarse</h3>
+                        <div className="p-3 mx-auto w-2/4 h-full flex flex-col justify-center gap-1">
+                            <h3 className="flex flex-col text-center font-semibold text-xl -mt-4 mb-6 ">Registrarse</h3>
                             <Formik
                                 initialValues={{
-                                    pazzword:'',
-                                    pazzword2:'',
+                                    password:'',
+                                    confirmPassword:'',
                                     email:'',
-                                    name:'',
-                                    typeOfUser:''
+                                    username:''
                                 }}
                                 validate={(valores)=>{
                                     let errores = {}
 
-                                    if(!valores.name){
-                                        errores.name = "Ingrese un nombre"
+
+                                    if(!valores.username){
+                                        errores.username = "Ingrese un nombre"
                                     }
 
                                     if(!valores.email){
@@ -108,30 +175,37 @@ function Register(){
                                         errores.email = 'Correo no valido'
                                     }
                                     
-
-                                    if(valores.pazzword !== valores.pazzword2){
-                                        errores.pazzword2 = "Las contraseñas no coinciden"
+                                    if(!valores.password){
+                                        errores.password = 'Ingrese una contraseña'
+                                    }else if(valores.password.length < 6){
+                                        errores.password = 'La contraseña al menos debe tener 6 carácteres, una mayúscula, una minúscula, un numero y un carácter especial'
+                                    }
+                                  
+                            
+                                    if(valores.password !== valores.confirmPassword){
+                                        errores.confirmPassword = "Las contraseñas no coinciden"
                                     }
 
-                                    if(!valores.typeOfUser){
-                                        errores.typeOfUser = "Elija el tipo de usuario"
-                                    }
+                                    // if(!valores.typeOfUser){
+                                    //     errores.typeOfUser = "Elija el tipo de usuario"
+                                    // }
 
 
                                     return errores
                                 }}
-                                onSubmit={(valores, {resetForm}) => {
+                                onSubmit={(valores, {resetForm}) => {                                   
+
                                     resetForm()
-                                    console.log(valores)
-                                    console.log('formulario enviado')
+                                    handleRegistre(valores)
+                                    
                                 }}
                                 >
                                 {({errors})=>(
-                                        <Form className='w-[80%] h-full'>
+                                        <Form>
                                 <div className=" w-full">
                                         <p className="my-3 font-semibold">Nombre de usuario *</p> 
-                                        <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='AlbertoF' id='name' name='name' type='text' />
-                                        <ErrorMessage name='name' component={()=> (<div className=' text-red-500 text-xs font-semibold'>{errors.name}</div>)} />
+                                        <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='AlbertoF' id='username' name='username' type='text' />
+                                        <ErrorMessage name='username' component={()=> (<div className=' text-red-500 text-xs font-semibold'>{errors.username}</div>)} />
                                 </div>
                                 <div className=" w-full">
                                         <p className="my-3 font-semibold">Correo eléctronico *</p> 
@@ -141,34 +215,34 @@ function Register(){
                                 <div className=" w-full mb-8">
                                         <p className="my-3 font-semibold">Contraseña *</p>
                                         <div>
-                                            <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='************' id='pazzword' name='pazzword' type={password} />
+                                            <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='************' id='password' name='password' type={password} />
                                             {watch && <div className='flex justify-end -my-6 mx-3 cursor-pointer'><img src={noEye} className="w-3" onClick={()=>{visible()}}  /></div> }
                                         <div className={clas}><img src={eye} className="w-3" onClick={()=>{noVisible()}} /></div>
+                                        <ErrorMessage name='password' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.password}</div>)} />
                                 </div>
                                 </div>
                                 <div className=" w-full mb-8 mt-10">
                                         <p className="my-3 font-semibold">Repetir contraseña *</p>
                                         <div>
-                                            <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='************' id='pazzword2' name='pazzword2' type={password1} />
+                                            <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder='************' id='confirmPassword' name='confirmPassword' type={password1} />
                                             {watch1 && <div className='flex justify-end -my-6 mx-3 cursor-pointer'><img src={noEye1} className="w-3" onClick={()=>{visible1()}}  /></div> }
                                         <div className={clas1}><img src={eye1} className="w-3" onClick={()=>{noVisible1()}} /></div>
-                                        <ErrorMessage name='pazzword2' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.pazzword2}</div>)} />
+                                        <ErrorMessage name='confirmPassword' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.confirmPassword}</div>)} />
                                 </div>
                                 </div>
-                                <div className='mt-10 mb-5'>
+                                {/* <div className='mt-10 mb-10'>
                                     <h4 className='my-3 font-semibold'>Tipo de usuario</h4>
                                     <fieldset className='flex flex-row gap-3' >
                                         <Field type='radio' name='typeOfUser' value='Cliente' id='typeOfUser' /><p>Cliente</p>
                                         <Field type='radio' name='typeOfUser' value='Paseador' id='typeOfUser2' /><p>Paseador</p>
                                     </fieldset> 
                                     <ErrorMessage name='typeOfUser' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.typeOfUser}</div>)} />
-                                </div> 
-                                <div className='w-full flex justify-center'>
-                                    <button className="mx-auto text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
-                                </div>
+                                </div>  */}
+                                <button className="flex justify-center mx-auto mt-[4rem] text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
                                 </Form>
                                     )}                            
                             </Formik>
+                    </div>
                     </div>
                 </div>
             </div>

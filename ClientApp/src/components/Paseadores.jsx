@@ -25,7 +25,7 @@ export const Paseadores = () => {
     const getPaseadores = async (direccion) =>{
 
             try {
-                const response = await fetch(`/api/Busqueda?query=${direccion}`);
+                const response = await fetch(`https://thewalkingdog.bsite.net/api/Busqueda?query=${direccion}`);
                 const data = await response.json();
                 setResultados(data)
             } catch (error) {

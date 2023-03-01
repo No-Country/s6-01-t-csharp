@@ -3,15 +3,17 @@ import noEye from '../assets/images/invisible.png';
 import { Link } from 'react-router-dom';
 import dog from '../assets/images/PerroPng.png';
 import { Formik,Form, Field, ErrorMessage } from 'formik';
-import { useState} from 'react';
+import { useState, createContext} from 'react';
 import LoginGmail from '../components/LoginGmail';
 import LoginFacebook from '../components/LoginFacebook';
 import Nav from '../components/Nav';
 import RequestWalker from '../components/RequestWalker';
+import Swal from 'sweetalert2';
 
 function LogIn(){
 
 
+    const contextLogin = createContext()
 
     const [watch, setWatch] = useState(true)
     const [noWatch, setNoWatch] = useState(true)
@@ -40,7 +42,24 @@ function LogIn(){
         }
     }
 
-   
+    const url = 'https://thewalkingdog.bsite.net/api/Auth/Login'
+
+    function handleLogin(valores){
+        fetch(url,{
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "email": valores.email,
+                "password": valores.password
+            })           
+        })
+        .then(res => res.json())
+        .then(data => console.log(data, data.token))
+        .catch(err => console.log(err))
+    }
 
     return(
         <>
@@ -60,7 +79,7 @@ function LogIn(){
                             <h3 className="flex flex-col text-center font-semibold text-xl m-2">Iniciar Sesión</h3>
                             <Formik
                                 initialValues={{
-                                    pword:'',
+                                    password:'',
                                     email:''
                                 }}
                                 validate={(valores)=>{
@@ -72,19 +91,20 @@ function LogIn(){
                                         errores.email = 'Correo incorrecto'
                                     }
 
-                                    if(!valores.pword){
-                                        errores.pword = "Contraseña incorrecta"
+                                    if(!valores.password){
+                                        errores.password = "Contraseña incorrecta"
                                     }
-                                    // else if(!/^.{4.20}$/.test(valores.pword)){
+                                    // else if(!/^.{4.20}$/.test(valores.password)){
                                     //     errores.pword = 'La contraseña o el correo es incorrecto'
                                     // }
 
                                     return errores
                                 }}
                                 onSubmit={(valores, {resetForm}) => {
-                                    resetForm()
-                                    console.log(valores)
-                                    console.log('formulario enviado')
+                                    handleLogin(valores)
+                                    // resetForm()
+                                    // console.log(valores)
+                                    // console.log('formulario enviado')
                                 }}
                             >
                                 {({errors})=>(
@@ -97,11 +117,11 @@ function LogIn(){
                                     <div className=" w-full mb-8">
                                         <p className="my-3 font-semibold">Contraseña</p>
                                         <div>
-                                            <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder="********" id='pword' name='pword' type={password} />
+                                            <Field className="border-2 rounded-md border-solid border-teal-600 w-full h-9 px-3" placeholder="********" id='password' name='password' type={password} />
                                             {watch && <div className='flex justify-end -my-6 mx-3 cursor-pointer'><img src={eye} className="w-3" onClick={()=>{visible()}}  /></div> }
                                             <div className={clas}><img src={noEye} className="w-3" onClick={()=>{noVisible()}} /></div>
                                         </div>
-                                        <ErrorMessage name='pword' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.pword}</div>)} />
+                                        <ErrorMessage name='password' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.password}</div>)} />
 
                                     </div> 
                                     <Link to='/ForgotPassword' className=" text-blue-400 hover:text-blue-500 duration-100 underline text-xs font-semibold cursor-pointer" >Olvide mi contraseña</Link>

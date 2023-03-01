@@ -77,7 +77,7 @@ function Register(){
    
 
         const handleRegistre = async (valores) => {
-            const url = '/api/Auth/Register'
+            const url = 'https://thewalkingdog.bsite.net/api/Auth/Register'
       
             try {
               const res = await fetch(url, {

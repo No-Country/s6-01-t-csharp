@@ -33,7 +33,7 @@ function Buscador() {
                         setResults({ directions: [], walkers: [] });
                     }
                 } else if (response.status === 401) {
-                    // The JWT has expired, log the user out
+                    setQuery('Hacer Login Porfavor');
                     localStorage.removeItem('jwtToken');
                     // Redirect to the login page or display an error message
                     // depending on your application's requirements

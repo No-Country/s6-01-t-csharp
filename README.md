@@ -1,7 +1,7 @@
 ![Preview](https://i.postimg.cc/c4gcGH9q/mobile-13.png)
 
 
-### [Proyecto Web: The Walking Dog](https://thewalkingdog.bsite.net/)
+### [Proyecto Web: The Walking Dog](https://cohortes6.azurewebsites.net/)
 Hola 👋, somos el **equipo S6-01-T-CSHARP**. Todos amamos a nuestras mascotas. Pero a veces, no podemos dedicarles todo el tiempo que quisieramos y 
 sentimos que ellos se aburren. Por eso, recurrimos a un paseador. ¿Pero cómo saber si es de confianza?. Walking Dog soluciona este 
 inconveniente con paseadores independientes y regionales bajo un marco de seguridad tanto para el paseador, como para el cliente 🐶

@@ -17,9 +17,13 @@ inconveniente con paseadores independientes y regionales bajo un marco de seguri
 - Back End
   - C#
   - ASP.Net
+  - Azure
 
-## Deploy
-[Proyecto deployado](https://thewalkingdog.bsite.net/)
+
+## Ver Proyecto
+- [Ver proyecto deployado en Azure](https://cohortes6.azurewebsites.net/)
+- [Ver video promocional](https://www.youtube.com/watch?v=3_V2IKYYBuc&ab_channel=NicolasCadel)
+- [Diseño - Figma](https://www.figma.com/file/s3XAFdG1QbnyWKBrCuJKNS/Cohorte-selec-6?node-id=11%3A2)
 
 Si desea usar ejecutar el proyecto
 

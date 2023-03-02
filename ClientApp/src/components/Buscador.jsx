@@ -12,7 +12,7 @@ function Buscador() {
         
         if (searchQuery.length > 0) {
             try {
-                const response = await fetch(`https://thewalkingdog.bsite.net/api/Busqueda?query=${searchQuery}`);
+                const response = await fetch(`/api/Busqueda?query=${searchQuery}`);
                 const data = await response.json();
 
                 if (data.directions && data.walkers) {

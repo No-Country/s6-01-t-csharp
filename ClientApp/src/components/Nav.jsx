@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {Link, useNavigate} from 'react-router-dom';
 import Logo from "../assets/images/Logo.png";
 import { EnlacesNav } from "./EnlacesNav";
+import log from "../assets/icons/logout.png";
 
 const style = {
     nav: "h-[10vh] w-full fixed z-50",
@@ -10,6 +11,7 @@ const style = {
     ulMobile:" w-full block  flex-col bg-alterno px-3 py-3 text-center",
     li:" h-full my-2 lg:my-0 py-1 hover:bg-primary lg:hover:bg-transparent hover:border-b-4 border-primary transition-all duration-200 ease-in- text-white ",
     btn_login: "bg-primary  py-2 px-4 rounded-lg text-white text-xl hover:bg-secondary transition-all duration-300 ease-in-out",
+    btn_login2: 'flex flex-row items-center bg-primary py-2 px-4 rounded-lg text-white text-xl hover:bg-secondary hover:justify-center transition-all duration-300 ease-in-out',
     bg_transparent: "bg-transparent",
     bg_active: "bg-alterno",
     btnResponsive: "flex items-center px-3 py-2 border rounded text-gray-400 text-gray-400 hover:text-white hover:border-white",
@@ -98,7 +100,7 @@ function handleLogOut(){
                     {inicio 
                     ? 
                     <Link to="/"> 
-                        <button className= { style.btn_login } onClick={()=>{handleLogOut()}} >{user}</button>
+                        <button className={ style.btn_login2 } onClick={()=>{handleLogOut()}} >{user}<img src={log} className='w-[1.2rem] h-[1.2rem] ml-2 invert rotate-180' /></button>
                     </Link>
                     :
                     <Link to="/login"> 

@@ -22,8 +22,7 @@ export const ProfilePaseadores = () => {
     const getPaseador = async (id) =>{
 
             try {
-                // const response = await fetch(`/api/Paseadores/${id}`);
-                const response = await fetch(`https://thewalkingdog.bsite.net/api/Paseadores/${id}`);
+                const response = await fetch(`/api/Paseadores/${id}`);
                 const data = await response.json();
                 setPaseador(data)
                 console.log(data)

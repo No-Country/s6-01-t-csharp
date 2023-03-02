@@ -42,7 +42,7 @@ function LogIn(){
         }
     }
 
-    const url = 'https://thewalkingdog.bsite.net/api/Auth/Login'
+    const url = '/api/Auth/Login'
     const navigate = useNavigate();
 
     function handleLogin(valores){
@@ -100,17 +100,12 @@ function LogIn(){
                                     if(!valores.password){
                                         errores.password = "Contraseña incorrecta"
                                     }
-                                    // else if(!/^.{4.20}$/.test(valores.password)){
-                                    //     errores.pword = 'La contraseña o el correo es incorrecto'
-                                    // }
+                             
 
                                     return errores
                                 }}
-                                onSubmit={(valores, {resetForm}) => {
+                                onSubmit={(valores) => {
                                     handleLogin(valores)
-                                    // resetForm()
-                                    // console.log(valores)
-                                    // console.log('formulario enviado')
                                 }}
                             >
                                 {({errors})=>(

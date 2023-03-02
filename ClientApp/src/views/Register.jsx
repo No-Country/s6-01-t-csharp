@@ -12,7 +12,6 @@ import noEye1 from '../assets/images/invisible.png';
 import {useEffect, useState} from 'react';
 import Nav from '../components/Nav';
 import Swal from 'sweetalert2'
-import * as yup from 'yup';
 
 
 function Register(){
@@ -115,24 +114,6 @@ function Register(){
             }
           }
 
-         
-
-
-        // function handleRegistre(valores){
-            
-        //     fetch(url,{
-        //         method: 'POST',
-        //         body:{
-        //             "email": valores.email,
-        //             "username": valores.username,
-        //             "password": valores.password,
-        //             "confirmPassword": valores.confirmPassword
-        //         }
-        //     })
-        //     .then(res => res)
-        //     .then(data => console.log(data))
-        //     .catch(err => console.log(err))
-        // }
 
     return(
         <>
@@ -229,14 +210,6 @@ function Register(){
                                         <ErrorMessage name='confirmPassword' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-9 -mb-8'>{errors.confirmPassword}</div>)} />
                                 </div>
                                 </div>
-                                {/* <div className='mt-10 mb-10'>
-                                    <h4 className='my-3 font-semibold'>Tipo de usuario</h4>
-                                    <fieldset className='flex flex-row gap-3' >
-                                        <Field type='radio' name='typeOfUser' value='Cliente' id='typeOfUser' /><p>Cliente</p>
-                                        <Field type='radio' name='typeOfUser' value='Paseador' id='typeOfUser2' /><p>Paseador</p>
-                                    </fieldset> 
-                                    <ErrorMessage name='typeOfUser' component={()=> (<div className=' text-red-500 text-xs font-semibold mt-1 -mb-8'>{errors.typeOfUser}</div>)} />
-                                </div>  */}
                                 <button className="flex justify-center mx-auto mt-[4rem] text-white text-sm bg-teal-500 hover:bg-teal-400 duration-150 rounded-md w-36 h-10 p-2" type='submit' >Registrarse</button>   
                                 </Form>
                                     )}                            

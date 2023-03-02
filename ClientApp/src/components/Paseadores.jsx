@@ -20,19 +20,38 @@ export const Paseadores = () => {
 
     const {direccion} = useParams()
 
-    const [resultados, setResultados] = useState("");
+    const [results, setResults] = useState({ directions: [], walkers: [] });
 
     const getPaseadores = async (direccion) =>{
-
-            try {
-                const response = await fetch(`/api/Busqueda?query=${direccion}`);
-                const data = await response.json();
-                setResultados(data)
-            } catch (error) {
-                console.error(error);
-            }
+        fetchData(direccion);
     }
+    const fetchData = async (direccion) => {
+        try {
+            const response = await fetch(`/api/Busqueda?query=${direccion}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
+                },
+            });
+            if (response.ok) {
+                const data = await response.json();
+                if (data.directions && data.walkers) {
+                    setResults(data);
+                } else {
 
+                    setResults({ directions: [], walkers: [] });
+                }
+            } else if (response.status === 401) { 
+                alert("Hacer Login");
+                localStorage.removeItem('jwtToken');
+                // Redirect to the login page or display an error message
+                // depending on your application's requirements
+            } else {
+                
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
     useEffect(() => {
         getPaseadores(direccion)
         
@@ -51,7 +70,7 @@ export const Paseadores = () => {
                 <h3 className={ styles.titulo } >Resultados de busqueda para: {direccion}</h3>
 
                 <div className={ styles.container_paseadores } >
-                    {resultados && resultados.walkers.map((walker)=>(
+                    {results && results.walkers.map((walker)=>(
                         <Link key={walker.id} to={`/perfilPaseador/${walker.id}`} className="cursor-pointer">
                          <CardPaseador 
                                 img={walker.avatar}

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using s6_01.Core.Mapper.Reviews;
 using s6_01.Core.Models.Dtos;
@@ -17,7 +18,7 @@ namespace s6_01.Controllers
             this.context = context;
         }
 
-
+        [Authorize(Roles = "User")]
         [HttpGet]
         public IActionResult BuscarPaseadores(string query)
         {

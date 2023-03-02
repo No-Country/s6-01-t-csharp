@@ -22,6 +22,7 @@ export const ProfilePaseadores = () => {
     const getPaseador = async (id) =>{
 
             try {
+                // const response = await fetch(`/api/Paseadores/${id}`);
                 const response = await fetch(`/api/Paseadores/${id}`);
                 const data = await response.json();
                 setPaseador(data)

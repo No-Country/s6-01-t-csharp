@@ -44,7 +44,6 @@ function LogIn(){
 
     const url = '/api/Auth/Login'
     const navigate = useNavigate();
-
     function handleLogin(valores){
         fetch(url,{
             method: 'POST',
@@ -62,14 +61,11 @@ function LogIn(){
             localStorage.setItem('jmtToken', JSON.stringify(data.token));
             localStorage.setItem('email', JSON.stringify(valores.email))
             navigate('/#',{replace: true});
-
         })
         .catch(err => console.log(err))
     }
-
     return(
         <>
-
             <Nav />
             <div className="w-[100%] min-h-screen md:h-screen flex justify-center  items-center pt-20">
 

@@ -1,11 +1,11 @@
-# [Proyecto Web: The Walking Dog](https://thewalkingdog.bsite.net/)
+![Preview](https://i.postimg.cc/c4gcGH9q/mobile-13.png)
 
-Hola 👋, somos el **equipo S6-01-T-CSHARP**.
-Todos amamos a nuestras mascotas. Pero a veces, no podemos dedicarles todo el tiempo que quisieramos y 
+
+### [Proyecto Web: The Walking Dog](https://thewalkingdog.bsite.net/)
+Hola 👋, somos el **equipo S6-01-T-CSHARP**. Todos amamos a nuestras mascotas. Pero a veces, no podemos dedicarles todo el tiempo que quisieramos y 
 sentimos que ellos se aburren. Por eso, recurrimos a un paseador. ¿Pero cómo saber si es de confianza?. Walking Dog soluciona este 
 inconveniente con paseadores independientes y regionales bajo un marco de seguridad tanto para el paseador, como para el cliente 🐶
 
-![Preview](https://i.postimg.cc/c4gcGH9q/mobile-13.png)
 
 ## Tecnologias Usadas
 - UX/UI
@@ -17,6 +17,15 @@ inconveniente con paseadores independientes y regionales bajo un marco de seguri
 - Back End
   - C#
   - ASP.Net
+
+## Deploy
+[Proyecto deployado](https://thewalkingdog.bsite.net/)
+
+Si desea usar ejecutar el proyecto
+
+- Para ejecutar solo front end
+``npm run start``
+
 
 ## Contribuidores
 - UX/UI
@@ -30,6 +39,5 @@ inconveniente con paseadores independientes y regionales bajo un marco de seguri
 - Project Manager
   - Nicolás Cadel
 
-## Deploy
-[Proyecto deployado](https://thewalkingdog.bsite.net/)
+
  

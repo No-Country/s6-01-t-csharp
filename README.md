@@ -27,8 +27,8 @@ inconveniente con paseadores independientes y regionales bajo un marco de seguri
 
 Si desea usar ejecutar el proyecto
 
-- Para ejecutar solo front end
-``npm run start``
+- Para ejecutar 
+``dotnet run``
 
 
 ## Contribuidores

@@ -14,7 +14,6 @@ function Buscador() {
         setHasClickedResult(false); // Reset state when user types in the search box
 
     };
-
     const fetchData = async () => {
         if (query.length > 2 && !hasClickedResult) { 
             setIsLoading(true);
@@ -29,7 +28,6 @@ function Buscador() {
                     if (data.directions && data.walkers) {
                         setResults(data);
                     } else {
-
                         setResults({ directions: [], walkers: [] });
                     }
                 } else if (response.status === 401) {

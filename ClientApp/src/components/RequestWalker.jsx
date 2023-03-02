@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import foto from '../assets/icons/Vector.png';
 import vect from '../assets/icons/VectorW.png';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 function RequestWalker(){
 
     const [photo, setPhoto] = useState(null)
-
+    const navigate = useNavigate()
 
     return(
         <>
@@ -62,7 +62,7 @@ function RequestWalker(){
                             onSubmit={(valores, {resetForm}) => {
                                 resetForm()
                                 console.log(valores,photo)
-                                console.log('formulario enviado')
+                                navigate('/pagos')
                             }}
                             >
 

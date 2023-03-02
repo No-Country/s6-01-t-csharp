@@ -7,6 +7,7 @@ import { Paseadores } from "./components/Paseadores";
 import Register from "./views/Register";
 import { PagosContainer } from "./views/PagosContainer";
 import { ProfilePaseadores } from "./components/ProfilePaseadores";
+import RequestWalker from "./components/RequestWalker";
 
 
 
@@ -38,6 +39,10 @@ const AppRoutes = [
     {
         path: '/perfilPaseador/:id',
         element: <ProfilePaseadores />
+    },
+    {
+        path: '/SolicitudPaseadores',
+        element: <RequestWalker />
     }
 ];
 export default AppRoutes;

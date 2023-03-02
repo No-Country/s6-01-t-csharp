@@ -1,6 +1,6 @@
 import eye from '../assets/images/visibilidad.png';
 import noEye from '../assets/images/invisible.png';
-import { Link } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import dog from '../assets/images/PerroPng.png';
 import { Formik,Form, Field, ErrorMessage } from 'formik';
 import { useState, createContext} from 'react';
@@ -43,6 +43,7 @@ function LogIn(){
     }
 
     const url = 'https://thewalkingdog.bsite.net/api/Auth/Login'
+    const navigate = useNavigate();
 
     function handleLogin(valores){
         fetch(url,{
@@ -57,7 +58,12 @@ function LogIn(){
             })           
         })
         .then(res => res.json())
-        .then(data => console.log(data, data.token))
+        .then(data => {
+            localStorage.setItem('jmtToken', JSON.stringify(data.token));
+            localStorage.setItem('email', JSON.stringify(valores.email))
+            navigate('/#',{replace: true});
+
+        })
         .catch(err => console.log(err))
     }
 

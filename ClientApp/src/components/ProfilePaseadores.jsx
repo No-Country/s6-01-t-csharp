@@ -37,6 +37,16 @@ export const ProfilePaseadores = () => {
         
     }, [])
 
+    const login = localStorage.getItem('email')
+
+    function handleRequest(){
+        if(login){
+            navigate('/SolicitudPaseadores')
+        }else{
+            navigate('/login')
+        }
+    }
+
     return (
         <>
         <Nav />
@@ -111,7 +121,7 @@ export const ProfilePaseadores = () => {
                                 ¿Quieres que este paseador se haga cargo de tu perro? <br />
                                 Para seguir con el proceso presiona el siguiente botón
                             </p>
-                            <button className="bg-[#01B1B0] p-3 text-white w-48 rounded-md">Rellenar Formulario</button>
+                            <button className="bg-[#01B1B0] p-3 text-white w-48 rounded-md" onClick={()=>{handleRequest()}}>Rellenar Formulario</button>
                         </div>
                     </div>
                     

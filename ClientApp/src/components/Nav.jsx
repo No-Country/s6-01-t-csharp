@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from 'react-router-dom';
 import Logo from "../assets/images/Logo.png";
 import { EnlacesNav } from "./EnlacesNav";
 
@@ -47,7 +47,16 @@ function Nav( { bgNav } ) {
     }
     window.addEventListener("scroll", addBgColor);
     
+const inicio = localStorage.getItem('jmtToken')
+let user = JSON.parse(localStorage.getItem('email'))
 
+function handleLogOut(){
+    if(inicio){
+        localStorage.clear()
+        location.reload()
+    }
+
+}
 
 
 //Función que evalúa el tamaño de la pantalla para cambiar el Bg-Nav
@@ -86,9 +95,16 @@ function Nav( { bgNav } ) {
                             onClick={ () => cambiarEnlace(el)}/>
                     ))}
 
-                    <Link to="/login"> 
-                        <button className= { style.btn_login }>Iniciar sesión </button>
+                    {inicio 
+                    ? 
+                    <Link to="/"> 
+                        <button className= { style.btn_login } onClick={()=>{handleLogOut()}} >{user}</button>
                     </Link>
+                    :
+                    <Link to="/login"> 
+                        <button className= { style.btn_login }>Iniciar sesion</button>
+                    </Link>
+                    }
                 </ul>
                 
             </div>

@@ -17,8 +17,7 @@ namespace s6_01.Controllers
         {
             this.context = context;
         }
-
-        [Authorize(Roles = "User")]
+     
         [HttpGet]
         public IActionResult BuscarPaseadores(string query)
         {
